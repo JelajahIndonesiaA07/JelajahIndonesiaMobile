@@ -4,7 +4,7 @@
 
   <a href="">[![Status deployment](https://github.com/JelajahIndonesiaA07/Jelajah-Indonesia/workflows/Deploy/badge.svg)](https://github.com/JelajahIndonesiaA07/Jelajah-Indonesia/actions/workflows/dpl.yml)</a>
   <a href="">[![Heroku App Status](https://heroku-shields.herokuapp.com/jelajahindonesia)](https://jelajahindonesia.herokuapp.com)</a>
-  <p>Pada project PBP ini, kelompok kami membuat sebuah website bernama Jelajah Indonesia yang berisi segala informasi dan hal yang dapat dilakukan oleh pandatang dari berbagai negara yang akan menjadi partisipan G20 untuk mengisi waktu selama rangkaian acara G20 berlangsung.</p>
+  <p>G20 merupakan forum kerja sama internasional yang beranggotakan negara-negara dengan perekonomian terbesar di dunia. Dalam kunjungannya ke Indonesia, tentu perwakilan negara G20 akan mencoba kuliner, tempat wisata, ataupun rumah sakit jika diperlukan. Untuk mendukung hal tersebut, kami menciptakan aplikasi Jelajah Indonesia. Jelajah Indonesia hadir untuk memberikan rekomendasi tempat wisata, rumah sakit, dan tempat kuliner sesuai dengan lokasi yang ingin dituju. Tidak hanya itu, Jelajah-Indonesia juga memberikan rekomendasi aktivitas untuk mengisi waktu luang sehingga para partisipan G20 tidak merasa bosan.</p>
 </div>
 
 ![image](https://user-images.githubusercontent.com/115601942/199528524-551db591-0baa-4fa4-9647-850f0d3102d3.jpeg)
@@ -22,16 +22,6 @@ Jelajah-Indonesia bertujuan untuk memperkenalkan Indonesia dengan memberikan rek
 | 2106752073 | [Muhammad Irsyad Mufid](https://github.com/IrsyadMufid) |
 | 2106751120 | [Ied Mubaraque Sultan Salahuddine El Ayyubie](https://github.com/Ayyubieied) |
 
-###  Website ini berisikan _home page_ yang meminta _user_ untuk membuat akun agar bisa mengakses web secara keseluruhan:
-
-| | Home Page | 
-|---|---|
-| 1 | Home Page (Untuk user yang belum login account) |
-|  | Form Registrasi |
-| 2 | Home Page (untuk user yang sudah login account) |
-
-- Lalu saat _user_ ingin membuat akun, _user_ akan disambut dengan formulir untuk mengetahui data-data _user_ dan _user_ akan bisa mengakses keseluruhan web.
-
 ## 💡 Modules
 
 ###  Website ini berisikan _home page_ yang meminta _user_ untuk membuat akun agar bisa mengakses web secara keseluruhan:
@@ -44,13 +34,30 @@ Jelajah-Indonesia bertujuan untuk memperkenalkan Indonesia dengan memberikan rek
 
 - Lalu saat _user_ ingin membuat akun, _user_ akan disambut dengan formulir untuk mengetahui data-data _user_ dan _user_ akan bisa mengakses keseluruhan web.
 ### Website untuk _user_ yang memiliki akun akan berisikan modul-modul berupa:
-| | Modules | Oleh |
+| No | Modules | Oleh |
 |---|---|---|
 | 1 | Kuisioner Data User | Ied Mubaraque Sultan Salahuddine El Ayyubie |
 | 2 | Tempat Wisata | Soraya Sabrina |
 | 3 | Aktivitas yang bisa dilakukan pada tempat wisata | Muhammad Irsyad Mufid |
 | 4 | Tempat Kuliner | Muhammad Rafialy Farrel | 
 | 5 | Kontak rumah sakit | Savero Arkabuana |
+
+### Daftar Modul
+| No | Modules | Penjelasan |
+|---|---|---|
+| 1 | Kuisioner Data User | Modul ini berisikan rekomendasi tempat wisata disertai dengan provinsi dan deskripsi singkat |
+| 2 | Tempat Wisata | Modul ini berisikan rekomendasi tempat wisata disertai dengan provinsi dan deskripsi singkat |
+| 3 | Aktivitas yang bisa dilakukan pada tempat wisata | Modul ini berisikan rekomendasi tempat kuliner disertai dengan rating dan alamat lokasi |
+| 4 | Tempat Kuliner | Modul ini berisikan hal-hal yang dapat dilakukan sesuai dengan provinsinya, seperti Jakarta, , Bali, Jawa Barat, Jawa Tengah, Jogja, Jawa Timur. Selain itu, terdapat saran yang dapat diisi oleh user | 
+| 5 | Kontak rumah sakit | Modul ini berisikan beberapa rumah sakit disertai dengan provinsi, nomor telpon, dan alamat lokasi |
+
+### Langkah Integrasi ke Web Service
+| No | Langkah - Langkah |
+|---|---|
+| 1 | Mengimplementasikan flutter support authentication dengan library Dart |
+| 2 | Mengimplementasikan JsonResponse atau JSON Serializer Django pada backend Django |
+| 3 | Mengimplementasikan widget flutter sesuai dengan desain website yang di konversikan kedalam tampilan mobile |
+| 4 | Mengintegrasikan frontend-backend website dan flutter dengan menggunakan konsep asynchronous HTTP | 
 
 #### Sumber 
 - [G20](https://www.g20.org/bali-summit/)
