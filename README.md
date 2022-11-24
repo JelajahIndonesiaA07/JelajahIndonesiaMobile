@@ -24,7 +24,7 @@ Jelajah-Indonesia bertujuan untuk memperkenalkan Indonesia dengan memberikan rek
 
 ## 💡 Modules
 
-###  _Mobile App ini berisikan _home page_ yang meminta _user_ untuk membuat akun agar bisa mengakses _mobile app_ secara keseluruhan:
+###  _Mobile App_ ini berisikan _home page_ yang meminta _user_ untuk membuat akun agar bisa mengakses _mobile app_ secara keseluruhan:
 
 | | Home Page | 
 |---|---|
