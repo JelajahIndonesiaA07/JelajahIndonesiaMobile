@@ -11,7 +11,7 @@
 
 
 ## ✨ Manfaat
-Jelajah-Indonesia bertujuan untuk memperkenalkan Indonesia dengan memberikan rekomendasi tempat-tempat yang menarik. Tidak hanya itu, Jelajah-Indonesia juga memberikan rekomendasi aktivitas untuk mengisi waktu luang sehingga para partisipan G20 tidak merasa bosan. Dengan begitu, para partisipan memiliki referensi tempat dan aktivitas yang dapat dilakukan. Apabila mengalami masalah kesehatan, para partisipan dapat mengunjungi rumah sakit yang tertera pada *website*. 
+Jelajah-Indonesia bertujuan untuk memperkenalkan Indonesia dengan memberikan rekomendasi tempat-tempat yang menarik. Tidak hanya itu, Jelajah-Indonesia juga memberikan rekomendasi aktivitas untuk mengisi waktu luang sehingga para partisipan G20 tidak merasa bosan. Dengan begitu, para partisipan memiliki referensi tempat dan aktivitas yang dapat dilakukan. Apabila mengalami masalah kesehatan, para partisipan dapat mengunjungi rumah sakit yang tertera pada *mobile app*. 
 
 ## 👨‍💻 Anggota kelompok
 | NPM | Nama |
@@ -24,7 +24,7 @@ Jelajah-Indonesia bertujuan untuk memperkenalkan Indonesia dengan memberikan rek
 
 ## 💡 Modules
 
-###  Website ini berisikan _home page_ yang meminta _user_ untuk membuat akun agar bisa mengakses web secara keseluruhan:
+###  _Mobile App ini berisikan _home page_ yang meminta _user_ untuk membuat akun agar bisa mengakses _mobile app_ secara keseluruhan:
 
 | | Home Page | 
 |---|---|
@@ -32,8 +32,8 @@ Jelajah-Indonesia bertujuan untuk memperkenalkan Indonesia dengan memberikan rek
 |  | Form Registrasi |
 | 2 | Home Page (untuk user yang sudah login account) |
 
-- Lalu saat _user_ ingin membuat akun, _user_ akan disambut dengan formulir untuk mengetahui data-data _user_ dan _user_ akan bisa mengakses keseluruhan web.
-### Website untuk _user_ yang memiliki akun akan berisikan modul-modul berupa:
+- Lalu saat _user_ ingin membuat akun, _user_ akan disambut dengan formulir untuk mengetahui data-data _user_ dan _user_ akan bisa mengakses keseluruhan _mobile app_.
+### _Mobile App_ untuk _user_ yang memiliki akun akan berisikan modul-modul berupa:
 | No | Modules | Oleh |
 |---|---|---|
 | 1 | Kuisioner Data User | Ied Mubaraque Sultan Salahuddine El Ayyubie |
@@ -51,13 +51,13 @@ Jelajah-Indonesia bertujuan untuk memperkenalkan Indonesia dengan memberikan rek
 | 4 | Tempat Kuliner | Modul ini berisikan hal-hal yang dapat dilakukan sesuai dengan provinsinya, seperti Jakarta, , Bali, Jawa Barat, Jawa Tengah, Jogja, Jawa Timur. Selain itu, terdapat saran yang dapat diisi oleh user | 
 | 5 | Kontak rumah sakit | Modul ini berisikan beberapa rumah sakit disertai dengan provinsi, nomor telpon, dan alamat lokasi |
 
-### Langkah Integrasi ke Web Service
+### Langkah Integrasi ke Mobile App Service
 | No | Langkah - Langkah |
 |---|---|
 | 1 | Mengimplementasikan flutter support authentication dengan library Dart |
 | 2 | Mengimplementasikan JsonResponse atau JSON Serializer Django pada backend Django |
-| 3 | Mengimplementasikan widget flutter sesuai dengan desain website yang di konversikan kedalam tampilan mobile |
-| 4 | Mengintegrasikan frontend-backend website dan flutter dengan menggunakan konsep asynchronous HTTP | 
+| 3 | Mengimplementasikan widget flutter sesuai dengan desain _mobile app_ yang di konversikan kedalam tampilan mobile |
+| 4 | Mengintegrasikan frontend-backend _mobile app_ dan flutter dengan menggunakan konsep asynchronous HTTP | 
 
 #### Sumber 
 - [G20](https://www.g20.org/bali-summit/)
