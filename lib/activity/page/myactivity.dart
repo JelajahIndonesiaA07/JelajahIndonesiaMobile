@@ -16,7 +16,7 @@ class _ActivityState extends State<ActivityPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('My Watch List'),
+          title: const Text('Aktivitas yang Dapat Dilakukan'),
         ),
         drawer: const DrawerApp(),
         body: FutureBuilder(
