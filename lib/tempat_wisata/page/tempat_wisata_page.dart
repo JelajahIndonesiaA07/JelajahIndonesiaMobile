@@ -22,7 +22,7 @@ class _TempatWisataPageState extends State<TempatWisataPage> {
         child: const Icon(Icons.autorenew, color: Colors.white),
       ),
       title: Text(
-        tempatWisata.nama_kota,
+        tempatWisata.provinsi,
       ),
       // trailing: Checkbox(
       //   value: myWatchList.statusWatched,

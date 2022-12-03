@@ -1,20 +1,17 @@
 class TempatWisata {
-  String nama_kota;
+  String provinsi;
   String nama_wisata;
-  String alamat;
   String deskripsi;
 
   TempatWisata(
-      {required this.nama_kota,
+      {required this.provinsi,
         required this.nama_wisata,
-        required this.alamat,
         required this.deskripsi});
 
   factory TempatWisata.fromJson(Map<String, dynamic> json) => TempatWisata(
-      nama_kota: json["fields"]["nama_kota"],
-      nama_wisata: json["fields"]["nama_wisata"],
-      alamat: json["fields"]["alamat"],
-      deskripsi: json["fields"]["deskripsi"]);
+      provinsi: json["fields"]["provinsi_tempat_wisata"],
+      nama_wisata: json["fields"]["nama_tempat_wisata"],
+      deskripsi: json["fields"]["deskripsi_tempat_wisata"]);
 
   Map<String, dynamic> toJson() => {
     "title": nama_wisata,

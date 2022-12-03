@@ -28,28 +28,28 @@ class TempatWisataDetailPage extends StatelessWidget {
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
           ),
           Text(
-              tempatWisata.nama_kota,
+              tempatWisata.provinsi,
               style: const TextStyle(fontSize: 20)
             ),
         ],
       ),
     );
 
-    final alamatTempatWisataList = Padding(
-      padding: const EdgeInsets.all(5.0),
-      child: Row(
-        children: [
-          const Text(
-            "Alamat: ",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-          ),
-          Text(
-              tempatWisata.alamat,
-              style: const TextStyle(fontSize: 20)
-          ),
-        ],
-      ),
-    );
+    // final alamatTempatWisataList = Padding(
+    //   padding: const EdgeInsets.all(5.0),
+    //   child: Row(
+    //     children: [
+    //       const Text(
+    //         "Alamat: ",
+    //         style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+    //       ),
+    //       Text(
+    //           tempatWisata.alamat,
+    //           style: const TextStyle(fontSize: 20)
+    //       ),
+    //     ],
+    //   ),
+    // );
 
     final deskripsiTempatWisata = Padding(
         padding: const EdgeInsets.all(5.0),
@@ -83,7 +83,6 @@ class TempatWisataDetailPage extends StatelessWidget {
         children: <Widget>[
           titleTempatWisata,
           provinsiTempatWisataList,
-          alamatTempatWisataList,
           deskripsiTempatWisata,
         ],
       ),
