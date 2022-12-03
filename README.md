@@ -2,8 +2,10 @@
 <h3 align="center">Tugas Kelompok PBP A07 </h3>
 <div align="center">
 
-  <a href="">[![Status deployment](https://github.com/JelajahIndonesiaA07/Jelajah-Indonesia/workflows/Deploy/badge.svg)](https://github.com/JelajahIndonesiaA07/Jelajah-Indonesia/actions/workflows/dpl.yml)</a>
-  <a href="">[![Heroku App Status](https://heroku-shields.herokuapp.com/jelajahindonesia)](https://jelajahindonesia.herokuapp.com)</a>
+  <a href="">[![Status deployment](https://github.com/JelajahIndonesiaA07/JelajahIndonesiaMobile/workflows/Deploy/badge.svg)](https://github.com/JelajahIndonesiaA07/JelajahIndonesiaMobile/actions/workflows/dpl.yml)</a>
+  <a href="">[![Staging](https://github.com/JelajahIndonesiaA07/JelajahIndonesiaMobile/actions/workflows/staging.yml/badge.svg)](https://github.com/JelajahIndonesiaA07/JelajahIndonesiaMobile/actions/workflows/staging.yml)</a>
+  <a href="">[![Pre-Release](https://github.com/JelajahIndonesiaA07/JelajahIndonesiaMobile/actions/workflows/pre-release.yml/badge.svg)](https://github.com/JelajahIndonesiaA07/JelajahIndonesiaMobile/actions/workflows/pre-release.yml)</a>
+  <a href="">[![Release](https://github.com/JelajahIndonesiaA07/JelajahIndonesiaMobile/actions/workflows/release.yml/badge.svg)](https://github.com/JelajahIndonesiaA07/JelajahIndonesiaMobile/actions/workflows/release.yml)</a>
   <p>G20 merupakan forum kerja sama internasional yang beranggotakan negara-negara dengan perekonomian terbesar di dunia. Dalam kunjungannya ke Indonesia, tentu perwakilan negara G20 akan mencoba kuliner, tempat wisata, ataupun rumah sakit jika diperlukan. Untuk mendukung hal tersebut, kami menciptakan aplikasi Jelajah Indonesia. Jelajah Indonesia hadir untuk memberikan rekomendasi tempat wisata, rumah sakit, dan tempat kuliner sesuai dengan lokasi yang ingin dituju. Tidak hanya itu, Jelajah-Indonesia juga memberikan rekomendasi aktivitas untuk mengisi waktu luang sehingga para partisipan G20 tidak merasa bosan.</p>
 </div>
 
