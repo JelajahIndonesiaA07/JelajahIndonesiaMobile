@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.counter_7">
+    package="com.example.jim">
    <application
-        android:label="counter_7"
+        android:label="jim"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
@@ -31,6 +31,5 @@
             android:name="flutterEmbedding"
             android:value="2" />
     </application>
-        <!-- Required to fetch data from the Internet. -->
     <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
