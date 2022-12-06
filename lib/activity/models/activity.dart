@@ -42,18 +42,18 @@ class Fields {
     required this.description,
   });
 
-  int user;
+  int? user;
   String title;
   String description;
 
   factory Fields.fromJson(Map<String, dynamic> json) => Fields(
-        user: json["user"],
+        user: json["user"] ,
         title: json["title"],
         description: json["description"],
       );
 
   Map<String, dynamic> toJson() => {
-        "user": user,
+        "user": user == null ? null : user,
         "title": title,
         "description": description,
       };
