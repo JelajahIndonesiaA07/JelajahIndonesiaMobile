@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../main.dart';
 import '../page/budget_form.dart';
-import '../page/budget_data.dart';
 import '../page/myactivity.dart';
 
 class DrawerApp extends StatelessWidget {
@@ -26,7 +25,7 @@ class DrawerApp extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text('Tambah Budget'),
+            title: const Text('Tambah Aktivitas'),
             onTap: () {
               // Route menu ke halaman Form Budget
               Navigator.pushReplacement(
@@ -36,17 +35,7 @@ class DrawerApp extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text('Data Budget'),
-            onTap: () {
-              // Route menu ke halaman Data budget
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => const MyDataPage()),
-              );
-            },
-          ),
-          ListTile(
-            title: const Text('My Watchlist'),
+            title: const Text('Things To DO'),
             onTap: () {
               // Route menu ke halaman data budget
               Navigator.pushReplacement(
