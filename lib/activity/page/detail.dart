@@ -1,6 +1,8 @@
+import 'package:jim/activity/widgets/drawer.dart';
+
 import '../models/activity.dart';
 import 'package:flutter/material.dart';
-import 'package:jim/emergencycall/widgets/drawer.dart';
+
 import 'package:intl/intl.dart';
 
 class ActivityDetailPage extends StatelessWidget {
@@ -15,7 +17,7 @@ class ActivityDetailPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Detail'),
       ),
-      drawer: buildDrawer(context),
+      drawer: DrawerApp(),
       body: Row(
         children: <Widget>[
           Expanded(
