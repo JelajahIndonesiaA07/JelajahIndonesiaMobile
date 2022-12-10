@@ -195,20 +195,27 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(
                 height: 15,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text("Don't have an account? ",
-                      style: TextStyle(fontSize: 16)),
-                  InkWell(
-                    child: Text(
-                      "Sign Up",
-                      style: TextStyle(color: Colors.blue, fontSize: 16),
-                    ),
-                    onTap: () {},
-                  )
-                ],
-              )
+              Padding(
+                        padding: const EdgeInsets.only(bottom: 35.0),
+                        child: TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const SignUpPage()));
+                          },
+                          style: TextButton.styleFrom(
+                            foregroundColor: Colors.blue,
+                          ),
+                          child: const Text(
+                            "Don't have account yet?",
+                            style: TextStyle(
+                              fontSize: 14,
+                              decoration: TextDecoration.underline,
+                            ),
+                          ),
+                        ),
+                      ),
             ],
           ),
         ),
