@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'activity/widgets/drawer.dart';
+import 'package:jim/emergencycall/widgets/drawer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -57,7 +59,19 @@ class _MyHomePageState extends State<MyHomePage> {
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
-      _counter--;
+      _counter++;
+    });
+  }
+
+  void _decrementCounter() {
+    setState(() {
+      
+      if (_counter != 0) {
+        _counter--;
+      }else{
+        return; // Apabila counter 0 maka tidak melakukan apa-apa
+      }
+      
     });
   }
 
@@ -75,6 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
+      drawer: buildDrawer(context),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
@@ -95,9 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
+            conditialNumber(),           
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
@@ -105,11 +118,36 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Visibility(
+            visible: _counter > 0,
+            child: FloatingActionButton(
+              onPressed: _decrementCounter,
+              tooltip: 'Decrement',
+              child: const Icon(Icons.remove),
+            ),
+          ),
+
+          FloatingActionButton(
+            onPressed: _incrementCounter,
+            tooltip: 'Increment',
+            child: const Icon(Icons.add),
+          ),
+          
+        ],
+      )
     );
   }
+  conditialNumber(){
+    // Apabila_counter % 2 == 0, Maka akan menunjukkan "Genap"  dengan warna merah , selain itu menujukkan "Ganjil" dengan warna biru
+  if(_counter % 2 == 0){
+        return const Text("GENAP",style: TextStyle(color: Colors.red,));
+  } else{
+        return const Text("GANJIL", style: TextStyle(color: Colors.blue,),);
+  }
+  }
 }
+
+
