@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'model/tempat_wisata_model.dart';
 
 Future<List<TempatWisata>> tempatwisataFetch() async {
-  var url = Uri.parse('https://jelajah-indonesia.up.railway.app/tempat_wisata/get-tempat-wisata-flutter/');
+  var url = Uri.parse('https://jelajah-indonesia.up.railway.app/tempat_wisata/get-data-by-userid/');
   var response = await http.get(
     url,
     headers: {

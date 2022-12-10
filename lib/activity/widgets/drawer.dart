@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../main.dart';
+import '../../tempat_wisata/page/tempat_wisata_form.dart';
+import '../../tempat_wisata/page/tempat_wisata_page.dart';
 import '../page/budget_form.dart';
 import '../page/myactivity.dart';
 
@@ -55,6 +57,26 @@ class DrawerApp extends StatelessWidget {
           //     );
           //   },
           // ),
+          ListTile(
+            title: const Text('Tempat Wisata'),
+            onTap: () {
+              // Route menu ke halaman form
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const TempatWisataPage()),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text('Tempat Wisata Form'),
+            onTap: () {
+              // Route menu ke halaman form
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => TempatWisataForm()),
+              );
+            },
+          ),
         ],
       ),
     );

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../drawer.dart';
+import '../../activity/widgets/drawer.dart';
 import '../model/tempat_wisata_model.dart';
 // import 'package:intl/intl.dart';
 
@@ -78,7 +78,7 @@ class TempatWisataDetailPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Detail'),
       ),
-      drawer: const DrawerPage(),
+      drawer: const DrawerApp(),
       body: Column(
         children: <Widget>[
           titleTempatWisata,

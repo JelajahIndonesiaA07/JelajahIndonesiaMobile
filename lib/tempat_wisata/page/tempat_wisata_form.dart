@@ -2,6 +2,7 @@
 // import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jim/common/theme_helper.dart';
+import '../../activity/widgets/drawer.dart';
 import '../page/widgets/header_widget.dart';
 import '../page/tempat_wisata_page.dart';
 import '../drawer.dart';
@@ -22,7 +23,7 @@ class _TempatWisataFormState extends State<TempatWisataForm>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const DrawerPage(),
+      drawer: const DrawerApp(),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Stack(

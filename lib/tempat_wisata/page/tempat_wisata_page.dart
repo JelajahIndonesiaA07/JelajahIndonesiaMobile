@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:jim/services/data_wisata_services.dart';
 import 'package:jim/tempat_wisata/model/tempat_wisata_model.dart';
 import 'package:jim/tempat_wisata/page/tempat_wisata_detail.dart';
+import '../../activity/widgets/drawer.dart';
 import '../fetch.dart';
 import '../drawer.dart';
 
@@ -59,11 +61,11 @@ class _TempatWisataPageState extends State<TempatWisataPage> {
       appBar: AppBar(
         title: const Text('Tempat Wisata'),
       ),
-      drawer: const DrawerPage(),
+      drawer: const DrawerApp(),
       body: FutureBuilder(
-          future: tempatwisataFetch(),
+          future: DataWisataServices().getDataWisataByUserId(3),
           builder: (context, AsyncSnapshot snapshot) {
-            if (snapshot.data == null) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(child: CircularProgressIndicator());
             } else {
               if (!snapshot.hasData) {
