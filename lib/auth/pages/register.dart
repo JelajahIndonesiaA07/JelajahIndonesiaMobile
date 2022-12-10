@@ -65,23 +65,23 @@ class _RegisterPageState extends State<RegisterPage> {
                     key: _formKey,
                     child: SafeArea(
                       child: Align(
-                        alignment: AlignmentDirectional(0, 0),
+                        alignment: const AlignmentDirectional(0, 0),
                         child: Container(
                           width: MediaQuery.of(context).size.width * 0.9,
                           height: 550,
                           decoration: BoxDecoration(
-                            color: Color(0xFF003566),
+                            color: const Color(0xFF003566),
                             borderRadius: BorderRadius.circular(20),
                             shape: BoxShape.rectangle,
                           ),
-                          alignment: AlignmentDirectional(0, 0),
+                          alignment: const AlignmentDirectional(0, 0),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(2, 0, 0, 0),
+                            padding: const EdgeInsetsDirectional.fromSTEB(2, 0, 0, 0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Padding(
+                                const Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       16, 5, 16, 10),
                                   child: Text(
@@ -93,17 +93,17 @@ class _RegisterPageState extends State<RegisterPage> {
                                   ),
                                 ),
                                 Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         20, 5, 20, 5),
                                     child: TextFormField(
                                       onChanged: (value) => uname_check(value),
-                                      cursorColor: Color(0xFF003566),
+                                      cursorColor: const Color(0xFF003566),
                                       decoration: InputDecoration(
                                         hintText: "Username",
                                         hintStyle:
-                                            TextStyle(color: Color(0xFF003566)),
+                                            const TextStyle(color: Color(0xFF003566)),
                                         enabledBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
+                                          borderSide: const BorderSide(
                                             color: Colors.white,
                                             width: 1,
                                           ),
@@ -111,7 +111,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                               BorderRadius.circular(20),
                                         ),
                                         focusedBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
+                                          borderSide: const BorderSide(
                                             color: Colors.white,
                                             width: 1,
                                           ),
@@ -120,7 +120,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                         ),
                                         filled: true,
                                         fillColor: Colors.white,
-                                        prefixIcon: Icon(
+                                        prefixIcon: const Icon(
                                           Icons.person,
                                           color: Color(0xFF003566),
                                         ),
@@ -138,17 +138,17 @@ class _RegisterPageState extends State<RegisterPage> {
                                       },
                                     )),
                                 Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         20, 5, 20, 5),
                                     child: TextFormField(
                                       obscureText: true,
-                                      cursorColor: Color(0xFF003566),
+                                      cursorColor: const Color(0xFF003566),
                                       decoration: InputDecoration(
                                         hintText: "Password",
                                         hintStyle:
-                                            TextStyle(color: Color(0xFF003566)),
+                                            const TextStyle(color: Color(0xFF003566)),
                                         enabledBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
+                                          borderSide: const BorderSide(
                                             color: Colors.white,
                                             width: 1,
                                           ),
@@ -156,7 +156,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                               BorderRadius.circular(20),
                                         ),
                                         focusedBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
+                                          borderSide: const BorderSide(
                                             color: Colors.white,
                                             width: 1,
                                           ),
@@ -165,7 +165,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                         ),
                                         filled: true,
                                         fillColor: Colors.white,
-                                        prefixIcon: Icon(
+                                        prefixIcon: const Icon(
                                           Icons.lock,
                                           color: Color(0xFF003566),
                                         ),
@@ -179,17 +179,17 @@ class _RegisterPageState extends State<RegisterPage> {
                                       },
                                     )),
                                 Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         20, 5, 20, 5),
                                     child: TextFormField(
                                       obscureText: true,
-                                      cursorColor: Color(0xFF003566),
+                                      cursorColor: const Color(0xFF003566),
                                       decoration: InputDecoration(
                                         hintText: "Confirm Password",
                                         hintStyle:
-                                            TextStyle(color: Color(0xFF003566)),
+                                            const TextStyle(color: Color(0xFF003566)),
                                         enabledBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
+                                          borderSide: const BorderSide(
                                             color: Colors.white,
                                             width: 1,
                                           ),
@@ -197,7 +197,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                               BorderRadius.circular(20),
                                         ),
                                         focusedBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
+                                          borderSide: const BorderSide(
                                             color: Colors.white,
                                             width: 1,
                                           ),
@@ -206,7 +206,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                         ),
                                         filled: true,
                                         fillColor: Colors.white,
-                                        prefixIcon: Icon(
+                                        prefixIcon: const Icon(
                                           Icons.lock,
                                           color: Color(0xFF003566),
                                         ),
@@ -220,20 +220,20 @@ class _RegisterPageState extends State<RegisterPage> {
                                       },
                                     )),
                                 Align(
-                                  alignment: AlignmentDirectional(0, 0),
+                                  alignment: const AlignmentDirectional(0, 0),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         20, 5, 20, 5),
                                     child: SizedBox(
                                       height: 40, //height of button
                                       width: double.infinity, //width of button
                                       child: ElevatedButton(
-                                        child: Text(
+                                        child: const Text(
                                           "Sign Up",
                                           style: TextStyle(color: Colors.black),
                                         ),
                                         style: ElevatedButton.styleFrom(
-                                            primary: Color(0xFFFFC300),
+                                            primary: const Color(0xFFFFC300),
                                             shape: RoundedRectangleBorder(
                                                 borderRadius:
                                                     BorderRadius.circular(20))),
@@ -247,7 +247,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                                 context,
                                                 MaterialPageRoute(
                                                   builder: (context) {
-                                                    return LoginPage();
+                                                    return const LoginPage();
                                                   },
                                                 ),
                                               );
@@ -259,9 +259,9 @@ class _RegisterPageState extends State<RegisterPage> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0, 0),
+                                  alignment: const AlignmentDirectional(0, 0),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         20, 20, 20, 0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -270,25 +270,25 @@ class _RegisterPageState extends State<RegisterPage> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
                                       children: [
-                                        Text(
+                                        const Text(
                                           "Already have an account?",
                                           style: TextStyle(color: Colors.white),
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   20, 0, 0, 0),
                                           child: SizedBox(
                                             height: 30, //height of button
                                             width: 100, //width of button
                                             child: ElevatedButton(
-                                                child: Text(
+                                                child: const Text(
                                                   "Login",
                                                   style: TextStyle(
                                                       color: Colors.black),
                                                 ),
                                                 style: ElevatedButton.styleFrom(
-                                                    primary: Color(0xFFFFC300),
+                                                    primary: const Color(0xFFFFC300),
                                                     shape:
                                                         RoundedRectangleBorder(
                                                             borderRadius:
@@ -300,7 +300,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                                     context,
                                                     MaterialPageRoute(
                                                       builder: (context) {
-                                                        return LoginPage();
+                                                        return const LoginPage();
                                                       },
                                                     ),
                                                   );

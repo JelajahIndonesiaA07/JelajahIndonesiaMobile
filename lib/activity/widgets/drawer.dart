@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../main.dart';
-import '../page/budget_form.dart';
+import '../page/activity_form.dart';
 import '../page/myactivity.dart';
 
 class DrawerApp extends StatelessWidget {
@@ -20,7 +20,7 @@ class DrawerApp extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) =>
-                        const MyHomePage(title: 'JelajahIndonesiaMobile')),
+                        const MyHomePage()),
               );
             },
           ),
