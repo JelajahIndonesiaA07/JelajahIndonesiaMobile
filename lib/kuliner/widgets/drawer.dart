@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jim/main.dart';
 import 'package:jim/kuliner/pages/kulinerpage.dart';
+import 'package:jim/kuliner/pages/form_kuliner.dart';
 
 Drawer buildDrawer(BuildContext context) {
   return Drawer(
@@ -21,6 +22,15 @@ Drawer buildDrawer(BuildContext context) {
                 Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => const kulinerPage()),
+                );
+            },
+        ),
+        ListTile(
+            title: const Text('Tambah Tempat Kuliner'),
+            onTap: () {
+                Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const MyFormPage()),
                 );
             },
         ),

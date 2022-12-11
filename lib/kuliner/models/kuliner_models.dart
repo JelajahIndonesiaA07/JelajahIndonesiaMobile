@@ -41,7 +41,7 @@ class Fields {
         required this.lokasiTempatKuliner,
     });
 
-    int user;
+    int? user;
     String namaTempatKuliner;
     String ratingTempatKuliner;
     String lokasiTempatKuliner;
@@ -54,7 +54,7 @@ class Fields {
     );
 
     Map<String, dynamic> toJson() => {
-        "user": user,
+        "user": user == null ? null : user,
         "nama_tempat_kuliner": namaTempatKuliner,
         "rating_tempat_kuliner": ratingTempatKuliner,
         "lokasi_tempat_kuliner": lokasiTempatKuliner,
