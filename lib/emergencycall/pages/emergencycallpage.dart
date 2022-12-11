@@ -12,11 +12,12 @@ class EmergencycallPage extends StatefulWidget {
 }
 
 class _EmergencycallState extends State<EmergencycallPage> {
-  @override
+
+@override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My Watch List'),
+        title: const Text('Daftar Rumah Sakit'),
       ),
       drawer: buildDrawer(context),
       body: FutureBuilder(
@@ -29,8 +30,8 @@ class _EmergencycallState extends State<EmergencycallPage> {
               return Column(
                 children: const [
                   Text(
-                    "No watchlist available",
-                    style: TextStyle(color: Color(0xff59A5D8), fontSize: 20),
+                    "Tidak Ada Rumah Sakit",
+                    style: TextStyle(color: Colors.deepPurple, fontSize: 20),
                   ),
                   SizedBox(height: 8),
                 ],
@@ -42,6 +43,12 @@ class _EmergencycallState extends State<EmergencycallPage> {
                         margin: const EdgeInsets.symmetric(
                             horizontal: 8, vertical: 8),
                         padding: const EdgeInsets.all(10.0),
+                        decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(15.0),
+                        boxShadow: const [
+                        BoxShadow(color: Colors.black, blurRadius: 2.0)
+                      ]),
                         child: GestureDetector(
                           onTap: () {
                             Navigator.push(
@@ -49,7 +56,7 @@ class _EmergencycallState extends State<EmergencycallPage> {
                               MaterialPageRoute(
                                   builder: (context) => EmergencycallDetail(
                                       Emergencycall:
-                                          listEmergencyCallTotal[i])),
+                                           listEmergencyCallTotal[i])),
                             );
                           },
                           child: Row(
@@ -61,6 +68,10 @@ class _EmergencycallState extends State<EmergencycallPage> {
                                   fontSize: 18.0,
                                   fontWeight: FontWeight.bold,
                                 ),
+                              ),
+
+                              const SizedBox(
+                              height: 20,
                               ),
                             ],
                           ),
@@ -74,6 +85,7 @@ class _EmergencycallState extends State<EmergencycallPage> {
   }
 }
 
+
 class EmergencycallDetail extends StatelessWidget {
   const EmergencycallDetail({super.key, required this.Emergencycall});
 
@@ -83,68 +95,76 @@ class EmergencycallDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My Watch List'),
+        title: const Text('Detail Rumah Sakit'),
       ),
       drawer: buildDrawer(context),
       body: Container(
-          child: Padding(
-        padding: const EdgeInsets.all(8.0),
         child: Stack(children: [
-          Column(
-            children: [
-              Column(children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      Emergencycall.fields.hospitalName,
-                      style:
-                          TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
-                ),
-              ]),
-              Column(
-                children: [
-                  Row(
+          Container(
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                  padding: const EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset:
+                            const Offset(0, 3), // changes position of shadow
+                      ),
+
+                    ],
+                    borderRadius: BorderRadius.circular(20),
+                    color: const Color.fromARGB(255, 165, 224, 167),
+                  ), 
+
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text("Release Date: ",
-                          style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold)),
+
                       Text(
-                          Emergencycall.fields.hospitalNumber
-                              .toString()
-                              .substring(0.bitLength),
-                          style: TextStyle(fontSize: 16)),
+                        Emergencycall.fields.hospitalName,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
+                      ),
+
+                      const SizedBox(
+                        height: 5,
+                      ),
+
+                      Text(
+                        "0" + Emergencycall.fields.hospitalNumber.toString(),
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
+                      ),
+
+                      const SizedBox(
+                        height: 20,
+                      ),
+
+                      Text(
+                        Emergencycall.fields.hospitalLocation,
+                        style: const TextStyle(
+                          fontSize: 16,
+                        ),
+                      ),
+
+                      const SizedBox(
+                      height: 20,
+                      ),
+
                     ],
                   ),
-                  Row(
-                    children: [
-                      const Text("Rating: ",
-                          style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold)),
-                      Text(Emergencycall.fields.hospitalLocation.toString(),
-                          style: TextStyle(fontSize: 16)),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      const Text("Review: ",
-                          style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold)),
-                    ],
-                  ),
-                  Row(children: [
-                    Flexible(
-                      child: Text(Emergencycall.fields.hospitalNumber.toString(),
-                          style: TextStyle(fontSize: 16)),
-                    )
-                  ])
-                ],
-              ),
-            ],
-          ),
+                ),
+
+
+
           Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -154,14 +174,14 @@ class EmergencycallDetail extends StatelessWidget {
                 },
                 child: Text('Back', style: TextStyle(color: Colors.white)),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
+                  backgroundColor: Colors.deepPurple,
                   minimumSize: const Size.fromHeight(60),
                 ),
               )
             ],
           ),
         ]),
-      )),
+      ),
     );
   }
 }
