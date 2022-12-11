@@ -117,7 +117,8 @@ class kulinerDetail extends StatelessWidget {
                   ), 
 
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    mainAxisSize: MainAxisSize.min,
                     children: [
 
                       Text(
