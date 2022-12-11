@@ -15,6 +15,21 @@
 ## ✨ Manfaat
 Jelajah-Indonesia bertujuan untuk memperkenalkan Indonesia dengan memberikan rekomendasi tempat-tempat yang menarik. Tidak hanya itu, Jelajah-Indonesia juga memberikan rekomendasi aktivitas untuk mengisi waktu luang sehingga para partisipan G20 tidak merasa bosan. Dengan begitu, para partisipan memiliki referensi tempat dan aktivitas yang dapat dilakukan. Apabila mengalami masalah kesehatan, para partisipan dapat mengunjungi rumah sakit yang tertera pada *mobile app*. 
 
+## Languages & Tools
+<div align="center">
+
+  <a href="">![Flutter](https://img.shields.io/badge/flutter-blue?style=for-the-badge&logo=flutter&logoColor=blue&labelColor=lightblue&color=lightblue)</a>
+  <a href="">![Dart](https://img.shields.io/badge/dart-FFD43B?style=for-the-badge&logo=dart&logoColor=white&color=blue)</a>
+  <a href="">![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)</a>
+  <a href="">![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)</a>
+  <a href="">![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)</a>
+  <a href="">![JSON](https://img.shields.io/badge/json-5E5C5C?style=for-the-badge&logo=json&logoColor=white)</a>
+</div>
+
+<a href="#">
+    <img src="svg/blogs/blogger.svg" alt="blogger" style="vertical-align:top; margin:6px 4px">
+  </a> 
+  
 ## 👨‍💻 Anggota kelompok
 | NPM | Nama |
 |---|---|
