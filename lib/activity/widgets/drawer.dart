@@ -7,6 +7,11 @@ import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 import 'package:jim/auth/pages/login_page.dart';
 import 'package:jim/auth/models/models_login.dart';
+import 'package:flutter/material.dart';
+import 'package:jim/main.dart';
+import 'package:jim/kuliner/pages/kulinerpage.dart';
+import 'package:jim/kuliner/pages/form_kuliner.dart';
+
 
 class DrawerApp extends StatelessWidget {
   const DrawerApp({super.key});
@@ -35,7 +40,7 @@ class DrawerApp extends StatelessWidget {
               // Route menu ke halaman Form Budget
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => const MyFormPage()),
+                MaterialPageRoute(builder: (context) => const MyActivityPage()),
               );
             },
           ),
@@ -74,6 +79,24 @@ class DrawerApp extends StatelessWidget {
               );
             },
           ),
+           ListTile(
+            title: const Text('Tempat Kuliner'),
+            onTap: () {
+                Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const kulinerPage()),
+                );
+            },
+        ),
+        ListTile(
+            title: const Text('Tambah Tempat Kuliner'),
+            onTap: () {
+                Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const MyFormPage()),
+                );
+            },
+        ),
         ],
       ),
     );

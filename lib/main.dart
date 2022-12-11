@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'auth/pages/login_page.dart';
 import 'auth/models/models_login.dart';
-import 'package:jim/kuliner/widgets/drawer.dart';
 
 void main() {
   runApp(const MyApp());

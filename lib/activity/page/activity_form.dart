@@ -5,11 +5,11 @@ import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-class MyFormPage extends StatefulWidget {
-  const MyFormPage({super.key});
+class MyActivityPage extends StatefulWidget {
+  const MyActivityPage({super.key});
 
   @override
-  State<MyFormPage> createState() => _TambahActivityContentPageState();
+  State<MyActivityPage> createState() => _TambahActivityContentPageState();
 }
 
 class ActivityContent {
@@ -22,7 +22,7 @@ class ActivityContent {
   });
 }
 
-class _TambahActivityContentPageState extends State<MyFormPage> {
+class _TambahActivityContentPageState extends State<MyActivityPage> {
   final _formKey = GlobalKey<FormState>();
   String? title;
   String? description;
@@ -151,7 +151,7 @@ class _TambahActivityContentPageState extends State<MyFormPage> {
 //     );
 //   }
 // }
-@override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -245,59 +245,62 @@ class _TambahActivityContentPageState extends State<MyFormPage> {
                       if (_formKey.currentState!.validate()) {
                         submit(title!, description!);
                         showDialog(
-                        context: context,
-                        builder: (context) {
-                          return Dialog(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            elevation: 15,
-                            child: Container(
-                              child: ListView(
-                                padding:
-                                    const EdgeInsets.only(top: 20, bottom: 20),
-                                shrinkWrap: true,
-                                children: <Widget>[
-                                  const Center(child: Text('Berhasil Menambahkan!')),
-                                  const SizedBox(height: 20),
-                                  // TODO: Munculkan informasi yang didapat dari form
-                                  Center(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          'Nama Tempat Kuliner: $title',
-                                          style: TextStyle(color: Colors.deepPurple),
-                                        ),
-                                        const SizedBox(
-                                          height: 10,
-                                        ),
-                                        Text(
-                                          'Rating Tempat Kuliner: $description',
-                                          style: TextStyle(color: Colors.deepPurple),
-                                        ),
-                                        const SizedBox(
-                                          height: 10,
-                                        ),
-                                        const SizedBox(
-                                          height: 10,
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  TextButton(
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                    },
-                                    child: const Text('Kembali'),
-                                  ),
-                                ],
+                          context: context,
+                          builder: (context) {
+                            return Dialog(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
                               ),
-                            ),
-                          );
-                        },
-                      );
+                              elevation: 15,
+                              child: Container(
+                                child: ListView(
+                                  padding: const EdgeInsets.only(
+                                      top: 20, bottom: 20),
+                                  shrinkWrap: true,
+                                  children: <Widget>[
+                                    const Center(
+                                        child: Text('Berhasil Menambahkan!')),
+                                    const SizedBox(height: 20),
+                                    // TODO: Munculkan informasi yang didapat dari form
+                                    Center(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            'Nama Tempat Kuliner: $title',
+                                            style: TextStyle(
+                                                color: Colors.deepPurple),
+                                          ),
+                                          const SizedBox(
+                                            height: 10,
+                                          ),
+                                          Text(
+                                            'Rating Tempat Kuliner: $description',
+                                            style: TextStyle(
+                                                color: Colors.deepPurple),
+                                          ),
+                                          const SizedBox(
+                                            height: 10,
+                                          ),
+                                          const SizedBox(
+                                            height: 10,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    TextButton(
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
+                                      child: const Text('Kembali'),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            );
+                          },
+                        );
                       }
                     },
                     child: const Text('Simpan',

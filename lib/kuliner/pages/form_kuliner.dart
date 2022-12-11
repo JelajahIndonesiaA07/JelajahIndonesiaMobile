@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../widgets/drawer.dart';
+import 'package:jim/activity/widgets/drawer.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -54,7 +54,7 @@ class _TambahKulinerContentPageState extends State<MyFormPage> {
       appBar: AppBar(
         title: const Text('Tambah Tempat Kuliner'),
       ),
-      drawer: buildDrawer(context),
+      drawer: const DrawerApp(),
       body: Form(
         key: _formKey,
         child: SingleChildScrollView(

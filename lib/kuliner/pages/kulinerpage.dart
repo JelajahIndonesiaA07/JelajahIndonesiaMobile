@@ -1,6 +1,6 @@
 import 'package:jim/kuliner/utils/fetchkuliner.dart';
 import 'package:jim/kuliner/models/kuliner_models.dart';
-import 'package:jim/kuliner/widgets/drawer.dart';
+import 'package:jim/activity/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
 class kulinerPage extends StatefulWidget {
@@ -17,7 +17,7 @@ class _kulinerState extends State<kulinerPage> {
       appBar: AppBar(
         title: const Text('List Tempat Kuliner'),
       ),
-      drawer: buildDrawer(context),
+      drawer: const DrawerApp(),
       body: FutureBuilder(
         future: fetchkuliner(),
         builder: (context, AsyncSnapshot snapshot) {
@@ -94,7 +94,7 @@ class kulinerDetail extends StatelessWidget {
       appBar: AppBar(
         title: const Text('My Watch List'),
       ),
-      drawer: buildDrawer(context),
+      drawer: const DrawerApp(),
       body: Container(
         child: Stack(children: [
           Container(
