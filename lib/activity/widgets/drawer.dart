@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import '../../main.dart';
-import '../page/budget_form.dart';
+import '../page/activity_form.dart';
 import '../page/myactivity.dart';
+import 'package:http/http.dart' as http;
+import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'package:provider/provider.dart';
+import 'package:jim/auth/pages/login_page.dart';
+import 'package:jim/auth/models/models_login.dart';
 
 class DrawerApp extends StatelessWidget {
   const DrawerApp({super.key});
@@ -20,7 +25,7 @@ class DrawerApp extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) =>
-                        const MyHomePage(title: 'JelajahIndonesiaMobile')),
+                        const MyHomePage()),
               );
             },
           ),
@@ -55,6 +60,20 @@ class DrawerApp extends StatelessWidget {
           //     );
           //   },
           // ),
+          ListTile(
+            title: const Text('Logout'),
+            onTap: () async {
+              Uri url = Uri.parse("https://jelajah-indonesia.up.railway.app/auth/logout/");
+              await http.get(url);
+
+              // final response =
+              //     await request.logout("http://localhost:8000/logout/");
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => LoginPage()),
+              );
+            },
+          ),
         ],
       ),
     );
