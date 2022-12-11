@@ -11,6 +11,11 @@ import 'package:flutter/material.dart';
 import 'package:jim/main.dart';
 import 'package:jim/kuliner/pages/kulinerpage.dart';
 import 'package:jim/kuliner/pages/form_kuliner.dart';
+import 'package:flutter/material.dart';
+import 'package:jim/emergencycall/pages/postemergencycall.dart';
+import 'package:jim/main.dart';
+import 'package:jim/emergencycall/pages/emergencycallpage.dart';
+
 
 
 class DrawerApp extends StatelessWidget {
@@ -97,6 +102,27 @@ class DrawerApp extends StatelessWidget {
                 );
             },
         ),
+        ListTile(
+          title: const Text('Daftar Rumah Sakit'),
+          onTap: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const EmergencycallPage()),
+            );
+          },
+        ),
+
+      ListTile(
+            title: const Text('Tambah Rumah Sakit'),
+            onTap: () {
+              // Route menu ke halaman Form Budget
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const MyHospitalFormPage()),
+              );
+            },
+          ),
         ],
       ),
     );
