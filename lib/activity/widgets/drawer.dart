@@ -30,10 +30,14 @@ class DrawerApp extends StatelessWidget {
     return Drawer(
       child: Column(
         children: [
-          
+          ListTile(
+            title: const Text(''),
+          ),
           // Menambahkan clickable menu
           ListTile(
-            title: const Text('JelajahIndonesiaMobile'),
+            title: const Text('Home Page',
+            style : const TextStyle(
+              fontSize: 17,)),
             onTap: () {
               // Route menu ke halaman utama
               Navigator.pushReplacement(
@@ -45,7 +49,10 @@ class DrawerApp extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text('Tambah Aktivitas'),
+            title: const Text('Tambah Aktivitas',
+            style : const TextStyle(
+              fontSize: 17,)
+            ),
             onTap: () {
               // Route menu ke halaman Form Budget
               Navigator.pushReplacement(
@@ -55,7 +62,9 @@ class DrawerApp extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text('Things To DO'),
+            title: const Text('Things To DO',
+            style : const TextStyle(
+              fontSize: 17,)),
             onTap: () {
               // Route menu ke halaman data budget
               Navigator.pushReplacement(
@@ -76,7 +85,9 @@ class DrawerApp extends StatelessWidget {
           //   },
           // ),
           ListTile(
-            title: const Text('Logout'),
+            title: const Text('Logout',
+            style : const TextStyle(
+              fontSize: 17,)),
             onTap: () async {
               Uri url = Uri.parse("https://jelajah-indonesia.up.railway.app/auth/logout/");
               await http.get(url);
@@ -90,7 +101,9 @@ class DrawerApp extends StatelessWidget {
             },
           ),
            ListTile(
-            title: const Text('Tempat Kuliner'),
+            title: const Text('List Tempat Kuliner',
+            style : const TextStyle(
+              fontSize: 17,)),
             onTap: () {
                 Navigator.pushReplacement(
                 context,
@@ -99,7 +112,9 @@ class DrawerApp extends StatelessWidget {
             },
         ),
         ListTile(
-            title: const Text('Tambah Tempat Kuliner'),
+            title: const Text('Tambah Tempat Kuliner',
+            style : const TextStyle(
+              fontSize: 17,)),
             onTap: () {
                 Navigator.pushReplacement(
                 context,
@@ -108,7 +123,9 @@ class DrawerApp extends StatelessWidget {
             },
         ),
         ListTile(
-          title: const Text('Daftar Rumah Sakit'),
+          title: const Text('Daftar Rumah Sakit',
+            style : const TextStyle(
+              fontSize: 17,)),
           onTap: () {
             Navigator.pushReplacement(
               context,
@@ -119,7 +136,9 @@ class DrawerApp extends StatelessWidget {
         ),
 
       ListTile(
-            title: const Text('Tambah Rumah Sakit'),
+            title: const Text('Tambah Rumah Sakit',
+            style : const TextStyle(
+              fontSize: 17,)),
             onTap: () {
               // Route menu ke halaman Form Budget
               Navigator.pushReplacement(
@@ -129,7 +148,9 @@ class DrawerApp extends StatelessWidget {
             },
           ),
         ListTile(
-                title: Text('Other User'),
+                title: Text('Other User',
+            style : const TextStyle(
+              fontSize: 17,)),
                 onTap: () {
                   Navigator.pushReplacement(
                     context,
@@ -138,7 +159,9 @@ class DrawerApp extends StatelessWidget {
                 },
                 ),
                 ListTile(
-                  title: Text('Form'),
+                  title: Text('Form',
+            style : const TextStyle(
+              fontSize: 17,)),
                   onTap: () {
                     Navigator.pushReplacement(
                       context,
@@ -148,7 +171,9 @@ class DrawerApp extends StatelessWidget {
                   },
                 ),
                 ListTile(
-                  title: Text('Profile'),
+                  title: Text('Profile',
+            style : const TextStyle(
+              fontSize: 17,)),
                   onTap: () {
                     Navigator.pushReplacement(
                       context,

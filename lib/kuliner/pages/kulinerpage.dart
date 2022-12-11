@@ -42,7 +42,7 @@ class _kulinerState extends State<kulinerPage> {
                             horizontal: 8, vertical: 8),
                         padding: const EdgeInsets.all(10.0),
                         decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: Colors.deepPurple,
                         borderRadius: BorderRadius.circular(15.0),
                         boxShadow: const [
                         BoxShadow(color: Colors.black, blurRadius: 2.0)
@@ -92,7 +92,7 @@ class kulinerDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My Watch List'),
+        title: const Text('Detail Tempat Kuliner'),
       ),
       drawer: const DrawerApp(),
       body: Container(
@@ -104,7 +104,7 @@ class kulinerDetail extends StatelessWidget {
                   decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
+                        color: Color.fromARGB(255, 86, 86, 86).withOpacity(0.5),
                         spreadRadius: 5,
                         blurRadius: 7,
                         offset:
@@ -113,7 +113,7 @@ class kulinerDetail extends StatelessWidget {
 
                     ],
                     borderRadius: BorderRadius.circular(20),
-                    color: const Color.fromARGB(255, 165, 224, 167),
+                    color: Color.fromARGB(255, 34, 29, 186),
                   ), 
 
                   child: Column(
@@ -130,14 +130,14 @@ class kulinerDetail extends StatelessWidget {
                       ),
 
                       const SizedBox(
-                        height: 5,
+                        height: 20,
                       ),
 
                       Text(
                         kuliner.fields.ratingTempatKuliner,
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 18,
+                          fontSize: 16,
                         ),
                       ),
 
@@ -227,7 +227,7 @@ class kulinerDetail extends StatelessWidget {
                 },
                 child: Text('Back', style: TextStyle(color: Colors.white)),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.deepPurple,
+                  backgroundColor: Color.fromARGB(255, 200, 48, 48),
                   minimumSize: const Size.fromHeight(60),
                 ),
               )

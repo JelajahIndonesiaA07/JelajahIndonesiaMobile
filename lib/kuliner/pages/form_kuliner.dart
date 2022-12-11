@@ -199,21 +199,21 @@ class _TambahKulinerContentPageState extends State<MyFormPage> {
                                       children: [
                                         Text(
                                           'Nama Tempat Kuliner: $nama_tempat_kuliner',
-                                          style: TextStyle(color: Colors.deepPurple),
+                                          style: TextStyle(color: Color.fromARGB(255, 196, 195, 199)),
                                         ),
                                         const SizedBox(
                                           height: 10,
                                         ),
                                         Text(
                                           'Rating Tempat Kuliner: $rating_tempat_kuliner',
-                                          style: TextStyle(color: Colors.deepPurple),
+                                          style: TextStyle(color: Color.fromARGB(255, 196, 195, 199)),
                                         ),
                                         const SizedBox(
                                           height: 10,
                                         ),
                                         Text(
                                           'Lokasi Tempat Kuliner: $lokasi_tempat_kuliner',
-                                          style: TextStyle(color: Colors.deepPurple),
+                                          style: TextStyle(color: Color.fromARGB(255, 196, 195, 199)),
                                         ),
                                         const SizedBox(
                                           height: 10,
@@ -225,7 +225,8 @@ class _TambahKulinerContentPageState extends State<MyFormPage> {
                                     onPressed: () {
                                       Navigator.pop(context);
                                     },
-                                    child: const Text('Kembali'),
+                                    child: const Text('Kembali',
+                                      style: TextStyle(color: Color.fromARGB(255, 161, 22, 22))),
                                   ),
                                 ],
                               ),
@@ -236,7 +237,7 @@ class _TambahKulinerContentPageState extends State<MyFormPage> {
                       }
                     },
                     child: const Text('Simpan',
-                        style: TextStyle(color: Colors.white)),
+                      style: TextStyle(color: Colors.white)),
                   ),
                 ),
               ],

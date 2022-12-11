@@ -28,9 +28,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'Jelajah Indonesia',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
+        theme:ThemeData(brightness: Brightness.dark,primaryColor: Colors.black),
         // home: const MyHomePage(),
         initialRoute: "/login",
         routes: {

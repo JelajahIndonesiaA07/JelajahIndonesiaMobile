@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import '../models/models_login.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -49,10 +50,15 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: Form(
         key: _loginFormKey,
-        child: Container(
+        child: SingleChildScrollView(
           padding: const EdgeInsets.all(20.0),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              Image.asset('assets/images/Jelajah_Indonesia2.png',
+              fit: BoxFit.fitWidth,
+              width: MediaQuery.of(context).size.width,),
               Text(
                 "Login",
                 style: TextStyle(fontSize: 22),
@@ -139,6 +145,9 @@ class _LoginPageState extends State<LoginPage> {
                         _loginFormKey.currentState!.reset();
                         // var users = User.fromJson(response["user"]);
                         // user.setUser(users);
+                        int userId = request.jsonData["data"];
+                        final prefs = await SharedPreferences.getInstance();
+                        await prefs.setInt('USERID', userId);
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(

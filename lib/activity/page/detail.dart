@@ -1,12 +1,14 @@
 import 'package:jim/activity/widgets/drawer.dart';
-
+import '../function/fetch.dart';
 import '../models/activity.dart';
 import 'package:flutter/material.dart';
+import '../page/myactivity.dart';
 
 import 'package:intl/intl.dart';
 
 class ActivityDetailPage extends StatelessWidget {
-  final Activity activity;
+  final BaseResponseActivity activity;
+ 
 
   const ActivityDetailPage({Key? key, required this.activity})
       : super(key: key);
@@ -86,6 +88,7 @@ class ActivityDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       appBar: AppBar(
         title: const Text('Things To Do'),
