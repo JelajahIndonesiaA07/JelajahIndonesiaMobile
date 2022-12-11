@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:jim/services/data_wisata_services.dart';
 import 'package:jim/tempat_wisata/model/tempat_wisata_model.dart';
 import 'package:jim/tempat_wisata/page/tempat_wisata_detail.dart';
+import 'package:jim/tempat_wisata/page/tempat_wisata_form.dart';
+
 import '../../activity/widgets/drawer.dart';
-import '../fetch.dart';
-import '../drawer.dart';
+import '../model/base_response.dart';
+import '../services/tempat_wisata_services.dart';
 
 class TempatWisataPage extends StatefulWidget {
   const TempatWisataPage({super.key});
@@ -16,7 +17,7 @@ class TempatWisataPage extends StatefulWidget {
 class _TempatWisataPageState extends State<TempatWisataPage> {
   @override
   Widget build(BuildContext context) {
-    ListTile makeListTile(TempatWisata tempatWisata) => ListTile(
+    ListTile makeListTile(BaseResponseTempatWisata tempatWisata) => ListTile(
       contentPadding:
       const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
       leading: Container(
@@ -24,7 +25,7 @@ class _TempatWisataPageState extends State<TempatWisataPage> {
         child: const Icon(Icons.autorenew, color: Colors.white),
       ),
       title: Text(
-        tempatWisata.provinsi,
+        tempatWisata.fields.namaTempatWisata,
       ),
       // trailing: Checkbox(
       //   value: myWatchList.statusWatched,
@@ -43,7 +44,7 @@ class _TempatWisataPageState extends State<TempatWisataPage> {
       },
     );
 
-    Card makeCard(TempatWisata tempatWisata) => Card(
+    Card makeCard(BaseResponseTempatWisata tempatWisata) => Card(
       margin: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 1),
       elevation: 4,
       shape: RoundedRectangleBorder(
@@ -62,13 +63,31 @@ class _TempatWisataPageState extends State<TempatWisataPage> {
         title: const Text('Tempat Wisata'),
       ),
       drawer: const DrawerApp(),
-      body: FutureBuilder(
-          future: DataWisataServices().getDataWisataByUserId(3),
+      body: FutureBuilder<ResponseModel>(
+          future: TempatWisataServices().getDataWisataByUserId(),
           builder: (context, AsyncSnapshot snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(child: CircularProgressIndicator());
             } else {
-              if (!snapshot.hasData) {
+              if (snapshot.hasData) {
+                ResponseModel data = snapshot.data;
+
+                if (data.data.isNotEmpty) {
+                  return ListView.builder(
+                      itemCount: data.data.length,
+                      itemBuilder: (_, index) =>
+                          makeCard(data.data[index]));
+                } else {
+                  return const Center(
+                    child:
+                    Text(
+                      "Tidak ada tempat wisata",
+                      style:
+                      TextStyle(color: Color(0xff59A5D8), fontSize: 20),
+                    ),
+                  );
+                }
+              } else {
                 return Column(
                   children: const [
                     Text(
@@ -78,13 +97,16 @@ class _TempatWisataPageState extends State<TempatWisataPage> {
                     SizedBox(height: 8),
                   ],
                 );
-              } else {
-                return ListView.builder(
-                    itemCount: snapshot.data!.length,
-                    itemBuilder: (_, index) => makeCard(snapshot.data![index]));
               }
             }
           }),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context) => TempatWisataForm()));
+        },
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }

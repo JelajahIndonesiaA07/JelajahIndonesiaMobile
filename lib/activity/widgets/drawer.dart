@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../main.dart';
+import '../../tempat_wisata/page/tempat_wisata_form.dart';
+import '../../tempat_wisata/page/tempat_wisata_page.dart';
 import '../page/activity_form.dart';
 import '../page/myactivity.dart';
 import 'package:http/http.dart' as http;
@@ -41,6 +43,26 @@ class DrawerApp extends StatelessWidget {
                 MaterialPageRoute(
                     builder: (context) =>
                         const MyHomePage()),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text('Tempat Wisata'),
+            onTap: () {
+              // Route menu ke halaman form
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const TempatWisataPage()),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text('Tempat Wisata Form'),
+            onTap: () {
+              // Route menu ke halaman form
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => TempatWisataForm()),
               );
             },
           ),

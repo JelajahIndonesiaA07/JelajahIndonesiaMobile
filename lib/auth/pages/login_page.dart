@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'register.dart';
 import '../../../../main.dart';
 import 'dart:io';
@@ -139,6 +140,12 @@ class _LoginPageState extends State<LoginPage> {
                         _loginFormKey.currentState!.reset();
                         // var users = User.fromJson(response["user"]);
                         // user.setUser(users);
+
+                        //save userId in local
+                        int userId = request.jsonData["data"];
+                        final prefs = await SharedPreferences.getInstance();
+                        await prefs.setInt('USERID', userId);
+
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(

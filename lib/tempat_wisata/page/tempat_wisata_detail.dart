@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:jim/tempat_wisata/page/tempat_wisata_page.dart';
+
 import '../../activity/widgets/drawer.dart';
 import '../model/tempat_wisata_model.dart';
+import '../services/tempat_wisata_services.dart';
 // import 'package:intl/intl.dart';
 
 class TempatWisataDetailPage extends StatelessWidget {
-  final TempatWisata tempatWisata;
+  final BaseResponseTempatWisata tempatWisata;
   const TempatWisataDetailPage({super.key, required this.tempatWisata});
-
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +16,7 @@ class TempatWisataDetailPage extends StatelessWidget {
     final titleTempatWisata = Padding(
         padding: const EdgeInsets.all(8.0),
         child: Text(
-          tempatWisata.nama_wisata,
+          tempatWisata.fields.namaTempatWisata,
           style: const TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),
           textAlign: TextAlign.center,
         ));
@@ -27,10 +29,8 @@ class TempatWisataDetailPage extends StatelessWidget {
             "Provinsi: ",
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
           ),
-          Text(
-              tempatWisata.provinsi,
-              style: const TextStyle(fontSize: 20)
-            ),
+          Text(tempatWisata.fields.provinsiTempatWisata,
+              style: const TextStyle(fontSize: 20)),
         ],
       ),
     );
@@ -67,7 +67,7 @@ class TempatWisataDetailPage extends StatelessWidget {
                           text: 'Review:\n',
                           style: TextStyle(fontWeight: FontWeight.bold)),
                       TextSpan(
-                        text:tempatWisata.deskripsi,
+                        text: tempatWisata.fields.deskripsiTempatWisata,
                       ),
                     ],
                   ),
@@ -77,6 +77,50 @@ class TempatWisataDetailPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Detail'),
+        actions: [
+          IconButton(
+              onPressed: () {
+                showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text("Ask"),
+                        content: Text("Do you want to delete?"),
+                        actions: [
+                          TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: Text("NO")),
+                          TextButton(
+                              onPressed: () async {
+                                bool result = await TempatWisataServices()
+                                    .deleteTemapatWisata(
+                                  tempatWisataId: tempatWisata.pk,
+                                );
+                                if (result) {
+                                  Navigator.pop(context);
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(
+                                          content:
+                                          Text("Berhasil hapus data")));
+                                  Navigator.of(context).pushAndRemoveUntil(
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                          const TempatWisataPage()),
+                                          (Route<dynamic> route) => false);
+                                }
+                              },
+                              child: Text("YES")),
+                        ],
+                      );
+                    });
+              },
+              icon: Icon(
+                Icons.delete,
+                color: Colors.white,
+              ))
+        ],
       ),
       drawer: const DrawerApp(),
       body: Column(

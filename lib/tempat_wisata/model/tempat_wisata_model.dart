@@ -1,19 +1,53 @@
-class TempatWisata {
-  String provinsi;
-  String nama_wisata;
-  String deskripsi;
 
-  TempatWisata(
-      {required this.provinsi,
-        required this.nama_wisata,
-        required this.deskripsi});
 
-  factory TempatWisata.fromJson(Map<String, dynamic> json) => TempatWisata(
-      provinsi: json["fields"]["provinsi_tempat_wisata"],
-      nama_wisata: json["fields"]["nama_tempat_wisata"],
-      deskripsi: json["fields"]["deskripsi_tempat_wisata"]);
+class BaseResponseTempatWisata {
+  BaseResponseTempatWisata({
+    required this.model,
+    required this.pk,
+    required this.fields,
+  });
+
+  final String model;
+  final int pk;
+  final TempatWisata fields;
+
+  factory BaseResponseTempatWisata.fromJson(Map<String, dynamic> json) => BaseResponseTempatWisata(
+    model: json["model"],
+    pk: json["pk"],
+    fields: TempatWisata.fromJson(json["fields"]),
+  );
 
   Map<String, dynamic> toJson() => {
-    "title": nama_wisata,
+    "model": model,
+    "pk": pk,
+    "fields": fields.toJson(),
+  };
+}
+
+class TempatWisata {
+  TempatWisata({
+    required this.user,
+    required this.namaTempatWisata,
+    required this.provinsiTempatWisata,
+    required this.deskripsiTempatWisata,
+  });
+
+  final int user;
+  final String namaTempatWisata;
+  final String provinsiTempatWisata;
+  final String deskripsiTempatWisata;
+
+  factory TempatWisata.fromJson(Map<String, dynamic> json) => TempatWisata(
+    user: json["user"],
+    namaTempatWisata: json["nama_tempat_wisata"],
+    provinsiTempatWisata: json["provinsi_tempat_wisata"],
+    deskripsiTempatWisata: json["deskripsi_tempat_wisata"],
+  );
+
+  Map<String, dynamic> toJson() => {
+    "user": user,
+    "nama_tempat_wisata": namaTempatWisata,
+    "provinsi_tempat_wisata": provinsiTempatWisata,
+    "deskripsi_tempat_wisata": deskripsiTempatWisata,
   };
 }
