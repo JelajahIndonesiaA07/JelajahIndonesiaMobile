@@ -44,11 +44,118 @@ class _TambahActivityContentPageState extends State<MyFormPage> {
     }
   }
 
-  @override
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: const Text('Form ActivityContent'),
+//       ),
+//       drawer: const DrawerApp(),
+//       body: Form(
+//         key: _formKey,
+//         child: SingleChildScrollView(
+//           child: Container(
+//             padding: const EdgeInsets.all(20.0),
+//             child: Column(
+//               children: [
+//                 Padding(
+//                   // Menggunakan padding sebesar 8 pixels
+//                   padding: const EdgeInsets.all(8.0),
+//                   child: TextField(
+//                     controller: _in,
+//                     decoration: InputDecoration(
+//                       hintText: "Contoh: Dieng",
+//                       labelText: "Nama Tempat",
+//                       // Menambahkan circular border agar lebih rapi
+//                       border: OutlineInputBorder(
+//                         borderRadius: BorderRadius.circular(5.0),
+//                       ),
+//                     ),
+//                     // Menambahkan behavior saat nama diketik
+//                     onChanged: (String? value) {
+//                       setState(() {
+//                         title = value!;
+//                       });
+//                     },
+//                     // Menambahkan behavior saat data disimpan
+//                     // onSaved: (String? value) {
+//                     //   setState(() {
+//                     //     _title = value!;
+//                     //   });
+//                     // },
+//                     // // Validator sebagai validasi form
+//                     // validator: (String? value) {
+//                     //   if (value == null || value.isEmpty) {
+//                     //     return 'title tidak boleh kosong!';
+//                     //   }
+//                     //   return null;
+//                     // },
+//                   ),
+//                 ),
+//                 Padding(
+//                   // Menggunakan padding sebesar 8 pixels
+//                   padding: const EdgeInsets.all(8.0),
+//                   child: TextField(
+//                     controller: _in2,
+//                     decoration: InputDecoration(
+//                       hintText: "Contoh: Berenang",
+//                       labelText: "Deskripsi Kegiatan",
+//                       // Menambahkan circular border agar lebih rapi
+//                       border: OutlineInputBorder(
+//                         borderRadius: BorderRadius.circular(5.0),
+//                       ),
+//                     ),
+//                     // Menambahkan behavior saat nama diketik
+//                     onChanged: (String? desc) {
+//                       setState(() {
+//                         description = desc!;
+//                       });
+//                     },
+//                     // Menambahkan behavior saat data disimpan
+//                     // onSaved: (String? desc) {
+//                     //   setState(() {
+//                     //     description = desc!;
+//                     //   });
+//                     // },
+//                     // Validator sebagai validasi form
+//                     // validator: (String? value) {
+//                     //   if (value == null || value.isEmpty) {
+//                     //     return 'title tidak boleh kosong!';
+//                     //   }
+//                     //   return null;
+//                     // },
+//                   ),
+//                 ),
+//                 Align(
+//                   alignment: Alignment.bottomCenter,
+//                   child: TextButton(
+//                     style: TextButton.styleFrom(
+//                         backgroundColor: Colors.blue,
+//                         padding: const EdgeInsets.all(15.0),
+//                         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+//                         alignment: Alignment.center),
+//                     onPressed: () {
+//                       if (_formKey.currentState!.validate()) {
+//                         submit(title!, description!);
+//                       }
+//                     },
+//                     child: const Text("Simpan",
+//                         style: TextStyle(color: Colors.white)),
+//                   ),
+//                 ),
+//               ],
+//             ),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+@override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Form ActivityContent'),
+        title: const Text('Tambah Things To Do'),
       ),
       drawer: const DrawerApp(),
       body: Form(
@@ -61,11 +168,13 @@ class _TambahActivityContentPageState extends State<MyFormPage> {
                 Padding(
                   // Menggunakan padding sebesar 8 pixels
                   padding: const EdgeInsets.all(8.0),
-                  child: TextField(
+                  child: TextFormField(
                     controller: _in,
                     decoration: InputDecoration(
                       hintText: "Contoh: Dieng",
                       labelText: "Nama Tempat",
+                      // Menambahkan icon agar lebih intuitif
+                      icon: const Icon(Icons.attractions),
                       // Menambahkan circular border agar lebih rapi
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5.0),
@@ -77,69 +186,121 @@ class _TambahActivityContentPageState extends State<MyFormPage> {
                         title = value!;
                       });
                     },
-                    // Menambahkan behavior saat data disimpan
-                    // onSaved: (String? value) {
-                    //   setState(() {
-                    //     _title = value!;
-                    //   });
-                    // },
-                    // // Validator sebagai validasi form
-                    // validator: (String? value) {
-                    //   if (value == null || value.isEmpty) {
-                    //     return 'title tidak boleh kosong!';
-                    //   }
-                    //   return null;
-                    // },
+                    onSaved: (String? value) {
+                      setState(() {
+                        title = value!;
+                      });
+                    },
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return 'title tidak boleh kosong!';
+                      }
+                      return null;
+                    },
                   ),
                 ),
                 Padding(
                   // Menggunakan padding sebesar 8 pixels
                   padding: const EdgeInsets.all(8.0),
-                  child: TextField(
+                  child: TextFormField(
                     controller: _in2,
                     decoration: InputDecoration(
                       hintText: "Contoh: Berenang",
                       labelText: "Deskripsi Kegiatan",
+                      // Menambahkan icon agar lebih intuitif
+                      icon: const Icon(Icons.surfing),
                       // Menambahkan circular border agar lebih rapi
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5.0),
                       ),
                     ),
                     // Menambahkan behavior saat nama diketik
-                    onChanged: (String? desc) {
+                    onChanged: (String? rate) {
                       setState(() {
-                        description = desc!;
+                        description = rate!;
                       });
                     },
-                    // Menambahkan behavior saat data disimpan
-                    // onSaved: (String? desc) {
-                    //   setState(() {
-                    //     description = desc!;
-                    //   });
-                    // },
-                    // Validator sebagai validasi form
-                    // validator: (String? value) {
-                    //   if (value == null || value.isEmpty) {
-                    //     return 'title tidak boleh kosong!';
-                    //   }
-                    //   return null;
-                    // },
+                    onSaved: (String? rate) {
+                      setState(() {
+                        description = rate!;
+                      });
+                    },
+                    validator: (String? rate) {
+                      if (rate == null || rate.isEmpty) {
+                        return 'Kegiatan Masih Kosong!';
+                      }
+                      return null;
+                    },
                   ),
                 ),
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: TextButton(
                     style: TextButton.styleFrom(
-                        backgroundColor: Colors.blue,
+                        backgroundColor: Colors.deepPurple,
                         padding: const EdgeInsets.all(15.0),
                         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                         alignment: Alignment.center),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         submit(title!, description!);
+                        showDialog(
+                        context: context,
+                        builder: (context) {
+                          return Dialog(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            elevation: 15,
+                            child: Container(
+                              child: ListView(
+                                padding:
+                                    const EdgeInsets.only(top: 20, bottom: 20),
+                                shrinkWrap: true,
+                                children: <Widget>[
+                                  const Center(child: Text('Berhasil Menambahkan!')),
+                                  const SizedBox(height: 20),
+                                  // TODO: Munculkan informasi yang didapat dari form
+                                  Center(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Nama Tempat Kuliner: $title',
+                                          style: TextStyle(color: Colors.deepPurple),
+                                        ),
+                                        const SizedBox(
+                                          height: 10,
+                                        ),
+                                        Text(
+                                          'Rating Tempat Kuliner: $description',
+                                          style: TextStyle(color: Colors.deepPurple),
+                                        ),
+                                        const SizedBox(
+                                          height: 10,
+                                        ),
+                                        const SizedBox(
+                                          height: 10,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: const Text('Kembali'),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      );
                       }
                     },
-                    child: const Text("Simpan",
+                    child: const Text('Simpan',
                         style: TextStyle(color: Colors.white)),
                   ),
                 ),

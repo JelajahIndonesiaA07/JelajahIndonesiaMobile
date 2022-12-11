@@ -3,44 +3,13 @@ import 'package:jim/auth/pages/login_page.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
+import '../models/models_register.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
 
   @override
   State<SignUpPage> createState() => _SignUpPageState();
-}
-
-class Register {
-  late String username;
-  late String password1;
-  late String password2;
-
-  Register({
-    required this.username,
-    required this.password1,
-    required this.password2,
-  });
-}
-
-class User {
-  String? username;
-  String? password1;
-
-  User({
-    required this.username,
-    required this.password1,
-  });
-
-  factory User.fromJson(Map<String, dynamic> json) => User(
-        username: json["username"] == null ? null : json["username"],
-        password1: json["password"] == null ? null : json["password"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "username": username == null ? null : username,
-        "password": password1 == null ? null : password1,
-      };
 }
 
 
