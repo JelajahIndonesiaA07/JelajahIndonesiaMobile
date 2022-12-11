@@ -15,17 +15,22 @@ import 'package:flutter/material.dart';
 import 'package:jim/emergencycall/pages/postemergencycall.dart';
 import 'package:jim/main.dart';
 import 'package:jim/emergencycall/pages/emergencycallpage.dart';
+import 'package:jim/Profile_User/form.dart';
+import 'package:jim/Profile_User/profile.dart';
+import 'package:jim/Profile_User/summary.dart';
 
 
 
 class DrawerApp extends StatelessWidget {
   const DrawerApp({super.key});
 
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
       child: Column(
         children: [
+          
           // Menambahkan clickable menu
           ListTile(
             title: const Text('JelajahIndonesiaMobile'),
@@ -123,6 +128,35 @@ class DrawerApp extends StatelessWidget {
               );
             },
           ),
+        ListTile(
+                title: Text('Other User'),
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => const ProfilePage()),
+                  );
+                },
+                ),
+                ListTile(
+                  title: Text('Form'),
+                  onTap: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const FormPage()),
+                    );
+                  },
+                ),
+                ListTile(
+                  title: Text('Profile'),
+                  onTap: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ShowPage()),
+                    );
+                  },
+                ),
         ],
       ),
     );
