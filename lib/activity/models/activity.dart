@@ -11,21 +11,22 @@ List<Activity> activityFromJson(String str) =>
 String activityToJson(List<Activity> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class Activity {
-  Activity({
+class BaseResponseActivity {
+  BaseResponseActivity({
     required this.model,
     required this.pk,
     required this.fields,
   });
 
-  String model;
-  int pk;
-  Fields fields;
+  final String model;
+  final int pk;
+  final Activity fields;
 
-  factory Activity.fromJson(Map<String, dynamic> json) => Activity(
+  factory BaseResponseActivity.fromJson(Map<String, dynamic> json) =>
+      BaseResponseActivity(
         model: json["model"],
         pk: json["pk"],
-        fields: Fields.fromJson(json["fields"]),
+        fields: Activity.fromJson(json["fields"]),
       );
 
   Map<String, dynamic> toJson() => {
@@ -35,25 +36,49 @@ class Activity {
       };
 }
 
-class Fields {
-  Fields({
+// class Activity {
+//   Activity({
+//     required this.model,
+//     required this.pk,
+//     required this.fields,
+//   });
+
+//   String model;
+//   int pk;
+//   Fields fields;
+
+//   factory Activity.fromJson(Map<String, dynamic> json) => Activity(
+//         model: json["model"],
+//         pk: json["pk"],
+//         fields: Fields.fromJson(json["fields"]),
+//       );
+
+//   Map<String, dynamic> toJson() => {
+//         "model": model,
+//         "pk": pk,
+//         "fields": fields.toJson(),
+//       };
+// }
+
+class Activity {
+  Activity({
     required this.user,
     required this.title,
     required this.description,
   });
 
-  int? user;
-  String title;
-  String description;
+  final int user;
+  final String title;
+  final String description;
 
-  factory Fields.fromJson(Map<String, dynamic> json) => Fields(
-        user: json["user"] ,
+  factory Activity.fromJson(Map<String, dynamic> json) => Activity(
+        user: json["user"],
         title: json["title"],
         description: json["description"],
       );
 
   Map<String, dynamic> toJson() => {
-        "user": user == null ? null : user,
+        "user": user,
         "title": title,
         "description": description,
       };

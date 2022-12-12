@@ -1,27 +1,25 @@
-import 'package:jim/emergencycall/pages/fetchemergencycall.dart';
-import 'package:jim/emergencycall/models/emergencycall.dart';
+import 'package:jim/kuliner/utils/fetchkuliner.dart';
+import 'package:jim/kuliner/models/kuliner_models.dart';
 import 'package:jim/activity/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
-
-class EmergencycallPage extends StatefulWidget {
-  const EmergencycallPage({Key? key}) : super(key: key);
+class kulinerPage extends StatefulWidget {
+  const kulinerPage({Key? key}) : super(key: key);
 
   @override
-  State<EmergencycallPage> createState() => _EmergencycallState();
+  State<kulinerPage> createState() => _kulinerState();
 }
 
-class _EmergencycallState extends State<EmergencycallPage> {
-
-@override
+class _kulinerState extends State<kulinerPage> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Daftar Rumah Sakit'),
+        title: const Text('List Tempat Kuliner'),
       ),
       drawer: const DrawerApp(),
       body: FutureBuilder(
-        future: fetchEmergencyCall(),
+        future: fetchkuliner(),
         builder: (context, AsyncSnapshot snapshot) {
           if (snapshot.data == null) {
             return const Center(child: CircularProgressIndicator());
@@ -30,7 +28,7 @@ class _EmergencycallState extends State<EmergencycallPage> {
               return Column(
                 children: const [
                   Text(
-                    "Tidak Ada Rumah Sakit",
+                    "Tidak Ada List Tempat Kuliner",
                     style: TextStyle(color: Colors.deepPurple, fontSize: 20),
                   ),
                   SizedBox(height: 8),
@@ -44,7 +42,7 @@ class _EmergencycallState extends State<EmergencycallPage> {
                             horizontal: 8, vertical: 8),
                         padding: const EdgeInsets.all(10.0),
                         decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 54, 47, 154),
+                        color: Colors.deepPurple,
                         borderRadius: BorderRadius.circular(15.0),
                         boxShadow: const [
                         BoxShadow(color: Colors.black, blurRadius: 2.0)
@@ -54,16 +52,16 @@ class _EmergencycallState extends State<EmergencycallPage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => EmergencycallDetail(
-                                      Emergencycall:
-                                           listEmergencyCallTotal[i])),
+                                  builder: (context) => kulinerDetail(
+                                      kuliner:
+                                          kulinerTotal[i])),
                             );
                           },
                           child: Row(
                             children: [
 
                               Text(
-                                "${snapshot.data![i].fields.hospitalName}",
+                                "${snapshot.data![i].fields.namaTempatKuliner}",
                                 style: const TextStyle(
                                   fontSize: 18.0,
                                   fontWeight: FontWeight.bold,
@@ -85,17 +83,16 @@ class _EmergencycallState extends State<EmergencycallPage> {
   }
 }
 
+class kulinerDetail extends StatelessWidget {
+  const kulinerDetail({super.key, required this.kuliner});
 
-class EmergencycallDetail extends StatelessWidget {
-  const EmergencycallDetail({super.key, required this.Emergencycall});
-
-  final Emergencycall;
+  final Kuliner kuliner;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Detail Rumah Sakit'),
+        title: const Text('Detail Tempat Kuliner'),
       ),
       drawer: const DrawerApp(),
       body: Container(
@@ -125,19 +122,7 @@ class EmergencycallDetail extends StatelessWidget {
                     children: [
 
                       Text(
-                        Emergencycall.fields.hospitalName,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        ),
-                      ),
-
-                      const SizedBox(
-                        height: 5,
-                      ),
-
-                      Text(
-                        "0" + Emergencycall.fields.hospitalNumber.toString(),
+                        kuliner.fields.namaTempatKuliner,
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
@@ -149,7 +134,19 @@ class EmergencycallDetail extends StatelessWidget {
                       ),
 
                       Text(
-                        Emergencycall.fields.hospitalLocation,
+                        kuliner.fields.ratingTempatKuliner,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                      ),
+
+                      const SizedBox(
+                        height: 20,
+                      ),
+
+                      Text(
+                        kuliner.fields.lokasiTempatKuliner,
                         style: const TextStyle(
                           fontSize: 16,
                         ),
@@ -163,6 +160,62 @@ class EmergencycallDetail extends StatelessWidget {
                   ),
                 ),
 
+          // Column(
+          //   children: [
+          //     Column(children: [
+          //       Row(
+          //         mainAxisAlignment: MainAxisAlignment.center,
+          //         children: [
+          //           Text(
+          //             kuliner.fields.namaTempatKuliner,
+          //             style:
+          //                 TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
+          //             textAlign: TextAlign.center,
+          //           ),
+          //         ],
+          //       ),
+          //     ]),
+
+          //     Column(
+          //       children: [
+          //         Row(
+          //           children: [
+          //             Text("Release Date: ",
+          //                 style: TextStyle(
+          //                     fontSize: 16, fontWeight: FontWeight.bold)),
+          //             Text(
+          //                 kuliner.fields.ratingTempatKuliner
+          //                     .toString()
+          //                     .substring(0.bitLength),
+          //                 style: TextStyle(fontSize: 16)),
+          //           ],
+          //         ),
+          //         Row(
+          //           children: [
+          //             const Text("Rating: ",
+          //                 style: TextStyle(
+          //                     fontSize: 16, fontWeight: FontWeight.bold)),
+          //             Text(kuliner.fields.lokasiTempatKuliner.toString(),
+          //                 style: TextStyle(fontSize: 16)),
+          //           ],
+          //         ),
+          //         Row(
+          //           children: [
+          //             const Text("Review: ",
+          //                 style: TextStyle(
+          //                     fontSize: 16, fontWeight: FontWeight.bold)),
+          //           ],
+          //         ),
+          //         Row(children: [
+          //           Flexible(
+          //             child: Text(kuliner.fields.ratingTempatKuliner.toString(),
+          //                 style: TextStyle(fontSize: 16)),
+          //           )
+          //         ])
+          //       ],
+          //     ),
+          //   ],
+          // ),
 
 
           Column(

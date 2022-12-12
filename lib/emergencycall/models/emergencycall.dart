@@ -44,7 +44,7 @@ class Fields {
     required this.hospitalLocation,
   });
 
-  int user;
+  int? user;
   String hospitalName;
   int hospitalNumber;
   String hospitalLocation;
@@ -57,7 +57,7 @@ class Fields {
       );
 
   Map<String, dynamic> toJson() => {
-        "user": user,
+        "user": user == null ? null : user,
         "hospital_name": hospitalName,
         "hospital_number": hospitalNumber,
         "hospital_location": hospitalLocation,
