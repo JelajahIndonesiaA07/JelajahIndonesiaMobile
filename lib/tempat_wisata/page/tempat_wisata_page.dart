@@ -27,14 +27,6 @@ class _TempatWisataPageState extends State<TempatWisataPage> {
       title: Text(
         tempatWisata.fields.namaTempatWisata,
       ),
-      // trailing: Checkbox(
-      //   value: myWatchList.statusWatched,
-      //   onChanged: (bool? newValue) {
-      //     setState(() {
-      //       myWatchList.statusWatched = !myWatchList.statusWatched;
-      //     });
-      //   },
-      // ),
       onTap: () {
         Navigator.push(
             context,

@@ -95,7 +95,7 @@ class TempatWisataDetailPage extends StatelessWidget {
                           TextButton(
                               onPressed: () async {
                                 bool result = await TempatWisataServices()
-                                    .deleteTemapatWisata(
+                                    .deleteTempatWisata(
                                   tempatWisataId: tempatWisata.pk,
                                 );
                                 if (result) {

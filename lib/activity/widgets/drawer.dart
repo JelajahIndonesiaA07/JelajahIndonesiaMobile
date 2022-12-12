@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 import '../../main.dart';
-import '../../tempat_wisata/page/tempat_wisata_form.dart';
 import '../../tempat_wisata/page/tempat_wisata_page.dart';
 import '../page/activity_form.dart';
 import '../page/myactivity.dart';
 import 'package:http/http.dart' as http;
-import 'package:pbp_django_auth/pbp_django_auth.dart';
-import 'package:provider/provider.dart';
+// import 'package:pbp_django_auth/pbp_django_auth.dart';
+// import 'package:provider/provider.dart';
 import 'package:jim/auth/pages/login_page.dart';
-import 'package:jim/auth/models/models_login.dart';
-import 'package:flutter/material.dart';
-import 'package:jim/main.dart';
+// import 'package:jim/auth/models/models_login.dart';
+// import 'package:flutter/material.dart';
+// import 'package:jim/main.dart';
 import 'package:jim/kuliner/pages/kulinerpage.dart';
 import 'package:jim/kuliner/pages/form_kuliner.dart';
-import 'package:flutter/material.dart';
+// import 'package:flutter/material.dart';
 import 'package:jim/emergencycall/pages/postemergencycall.dart';
-import 'package:jim/main.dart';
+// import 'package:jim/main.dart';
 import 'package:jim/emergencycall/pages/emergencycallpage.dart';
 import 'package:jim/Profile_User/form.dart';
 import 'package:jim/Profile_User/profile.dart';
@@ -36,6 +35,7 @@ class DrawerApp extends StatelessWidget {
           // Menambahkan clickable menu
           ListTile(
             title: const Text('JelajahIndonesiaMobile'),
+            leading: Icon(Icons.home),
             onTap: () {
               // Route menu ke halaman utama
               Navigator.pushReplacement(
@@ -46,8 +46,12 @@ class DrawerApp extends StatelessWidget {
               );
             },
           ),
+          Divider(
+          color: Colors.grey,
+          ),
           ListTile(
             title: const Text('Tempat Wisata'),
+            leading: Icon(Icons.landscape),
             onTap: () {
               // Route menu ke halaman form
               Navigator.pushReplacement(
@@ -56,18 +60,20 @@ class DrawerApp extends StatelessWidget {
               );
             },
           ),
-          ListTile(
-            title: const Text('Tempat Wisata Form'),
-            onTap: () {
-              // Route menu ke halaman form
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => TempatWisataForm()),
-              );
-            },
-          ),
+          // ListTile(
+          //   title: const Text('Tempat Wisata Form'),
+          //   leading: Icon(Icons.add_rounded),
+          //   onTap: () {
+          //     // Route menu ke halaman form
+          //     Navigator.pushReplacement(
+          //       context,
+          //       MaterialPageRoute(builder: (context) => TempatWisataForm()),
+          //     );
+          //   },
+          // ),
           ListTile(
             title: const Text('Tambah Aktivitas'),
+            leading: Icon(Icons.add_rounded),
             onTap: () {
               // Route menu ke halaman Form Budget
               Navigator.pushReplacement(
@@ -77,7 +83,8 @@ class DrawerApp extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text('Things To DO'),
+            title: const Text('Things To Do'),
+            leading: Icon(Icons.local_activity),
             onTap: () {
               // Route menu ke halaman data budget
               Navigator.pushReplacement(
@@ -86,99 +93,118 @@ class DrawerApp extends StatelessWidget {
               );
             },
           ),
+          ListTile(
+            title: const Text('Tempat Kuliner'),
+            leading: Icon(Icons.local_dining),
+            onTap: () {
+              // Route menu ke halaman data budget
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const kulinerPage()),
+              );
+            },
+          ),
+          ListTile(
+              title: const Text('Tambah Tempat Kuliner'),
+              leading: Icon(Icons.add_rounded),
+              onTap: () {
+                  Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MyFormPage()),
+                  );
+              },
+          ),
+          ListTile(
+            title: const Text('Daftar Rumah Sakit'),
+            leading: Icon(Icons.local_hospital),
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const EmergencycallPage()),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text('Tambah Rumah Sakit'),
+            leading: Icon(Icons.add_rounded),
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const MyHospitalFormPage()),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text('Other User'),
+            leading: Icon(Icons.supervisor_account),
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const ProfilePage()),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text('Form'),
+            leading: Icon(Icons.person_add),
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const FormPage()),
+              );
+            },
+          ),
+
+          ListTile(
+            title: Text('Profile'),
+            leading: Icon(Icons.person),
+            dense: true,
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const ShowPage()),
+              );
+            },
+          ),
+
           // ListTile(
-          //   title: const Text('test'),
-          //   onTap: () {
-          //     // Route menu ke halaman data budget
+          //   title: const Text('Logout'),
+          //
+          //   leading: Icon(Icons.logout),
+          //   onTap: () async {
+          //     Uri url = Uri.parse("https://jelajah-indonesia.up.railway.app/auth/logout/");
+          //     await http.get(url);
+          //
+          //     // final response =
+          //     //     await request.logout("http://localhost:8000/logout/");
           //     Navigator.pushReplacement(
           //       context,
-          //       MaterialPageRoute(
-          //           builder: (context) => const FormBookingPage()),
+          //       MaterialPageRoute(builder: (context) => LoginPage()),
           //     );
           //   },
           // ),
-          ListTile(
-            title: const Text('Logout'),
-            onTap: () async {
-              Uri url = Uri.parse("https://jelajah-indonesia.up.railway.app/auth/logout/");
-              await http.get(url);
-
-              // final response =
-              //     await request.logout("http://localhost:8000/logout/");
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => LoginPage()),
-              );
-            },
-          ),
-           ListTile(
-            title: const Text('Tempat Kuliner'),
-            onTap: () {
-                Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => const kulinerPage()),
-                );
-            },
-        ),
-        ListTile(
-            title: const Text('Tambah Tempat Kuliner'),
-            onTap: () {
-                Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => const MyFormPage()),
-                );
-            },
-        ),
-        ListTile(
-          title: const Text('Daftar Rumah Sakit'),
-          onTap: () {
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => const EmergencycallPage()),
-            );
-          },
-        ),
-
-      ListTile(
-            title: const Text('Tambah Rumah Sakit'),
-            onTap: () {
-              // Route menu ke halaman Form Budget
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => const MyHospitalFormPage()),
-              );
-            },
-          ),
-        ListTile(
-                title: Text('Other User'),
-                onTap: () {
+          Expanded(
+            child: Align(
+              alignment: FractionalOffset.bottomCenter,
+              child: ListTile(
+                leading: Icon(Icons.logout,),
+                title: const Text('Logout'),
+                onTap: () async {
+                  Uri url = Uri.parse("https://jelajah-indonesia.up.railway.app/auth/logout/");
+                  await http.get(url);
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => const ProfilePage()),
-                  );
+                    MaterialPageRoute(builder: (context) => LoginPage()),
+                    );
                 },
-                ),
-                ListTile(
-                  title: Text('Form'),
-                  onTap: () {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const FormPage()),
-                    );
-                  },
-                ),
-                ListTile(
-                  title: Text('Profile'),
-                  onTap: () {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const ShowPage()),
-                    );
-                  },
-                ),
+              ),
+            ),
+          )
         ],
       ),
     );

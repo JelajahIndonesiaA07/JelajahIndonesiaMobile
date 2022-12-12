@@ -26,7 +26,7 @@ class _TempatWisataFormState extends State<TempatWisataForm> {
 
   Future<ResponseModel> _submitData() async {
     _onLoading();
-    ResponseModel result = await TempatWisataServices().addTemapatWisata(
+    ResponseModel result = await TempatWisataServices().addTempatWisata(
         namaTempatWisata: nama.text,
         provinsiTempatWisata: prov.text,
         deskripsiTempatWisata: deskripsi.text);
@@ -64,35 +64,6 @@ class _TempatWisataFormState extends State<TempatWisataForm> {
                         GestureDetector(
                           child: Stack(
                             children: const [
-                              // Container(
-                              //   padding: EdgeInsets.all(10),
-                              //   decoration: BoxDecoration(
-                              //     borderRadius: BorderRadius.circular(100),
-                              //     border: Border.all(
-                              //         width: 5, color: Colors.white),
-                              //     color: Colors.white,
-                              //     boxShadow: const [
-                              //       BoxShadow(
-                              //         color: Colors.black12,
-                              //         blurRadius: 20,
-                              //         offset: Offset(5, 5),
-                              //       ),
-                              //     ],
-                              //   ),
-                              //   child: Icon(
-                              //     Icons.person,
-                              //     color: Colors.grey.shade300,
-                              //     size: 80.0,
-                              //   ),
-                              // ),
-                              // Container(
-                              //   padding: EdgeInsets.fromLTRB(80, 80, 0, 0),
-                              //   child: Icon(
-                              //     Icons.add_circle,
-                              //     color: Colors.grey.shade700,
-                              //     size: 25.0,
-                              //   ),
-                              // ),
                             ],
                           ),
                         ),

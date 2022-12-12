@@ -42,7 +42,7 @@ class TempatWisataServices {
     }
   }
 
-  Future<ResponseModel> addTemapatWisata({
+  Future<ResponseModel> addTempatWisata({
     required String namaTempatWisata,
     required String provinsiTempatWisata,
     required String deskripsiTempatWisata,
@@ -79,7 +79,7 @@ class TempatWisataServices {
     return ResponseModel(msg: result["hasil"], data: List.empty());
   }
 
-  Future<bool> deleteTemapatWisata({
+  Future<bool> deleteTempatWisata({
     required int tempatWisataId,
   }) async {
     final body = json.encode({"wisata_id": tempatWisataId});
