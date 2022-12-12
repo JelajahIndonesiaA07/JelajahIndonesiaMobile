@@ -1,36 +1,22 @@
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:jim/activity/widgets/drawer.dart';
-import 'package:intl/intl.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
-
-import 'package:flutter/material.dart';
-import 'package:jim/emergencycall/models/emergencycall.dart';
-import 'package:jim/emergencycall/pages/emergencycalldetail.dart';
-import 'package:jim/emergencycall/pages/emergencycallpage.dart';
-import 'package:jim/emergencycall/pages/postemergencycall.dart';
-
-import '../../activity/widgets/drawer.dart';
-import '../models/baseresponse.dart';
-import '../fetch/fetchemergencycall.dart';
-
-import 'package:jim/emergencycall/fetch/fetchemergencycall.dart';
-import 'package:jim/emergencycall/models/emergencycall.dart';
 import 'package:jim/emergencycall/theme/theme_helper.dart';
 
+import '../../activity/widgets/drawer.dart';
+import '../models/base_response.dart';
+import '../pages/tempat_kuliner_page.dart';
+// import '../pages/widgets/header_widget.dart';
+import '../services/tempat_kuliner_services.dart';
 
-class EmergencyCallForm extends StatefulWidget {
+class TempatKulinerForm extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _EmergencyCallFormState();
+    return _TempatKulinerFormState();
   }
 }
 
-class _EmergencyCallFormState extends State<EmergencyCallForm> {
+class _TempatKulinerFormState extends State<TempatKulinerForm> {
   TextEditingController nama = TextEditingController();
-  TextEditingController telefon = TextEditingController();
+  TextEditingController rating= TextEditingController();
   TextEditingController lokasi = TextEditingController();
   bool loading = false;
 
@@ -39,10 +25,10 @@ class _EmergencyCallFormState extends State<EmergencyCallForm> {
 
   Future<ResponseModel> _submitData() async {
     _onLoading();
-    ResponseModel result = await EmergencyCallServices().addEmergencyCall(
-        hospital_name: nama.text,
-        hospital_number: telefon.text,
-        hospital_location: lokasi.text);
+    ResponseModel result = await TempatKulinerServices().addTempatKuliner(
+        namaTempatKuliner: nama.text,
+        ratingTempatKuliner: rating.text,
+        lokasiTempatKuliner: lokasi.text);
     _offLoading();
     return result;
   }
@@ -59,6 +45,11 @@ class _EmergencyCallFormState extends State<EmergencyCallForm> {
       body: SingleChildScrollView(
         child: Stack(
           children: [
+            Container(
+              height: 150,
+              // child: const HeaderWidget(
+              //     150, false, Icons.person_add_alt_1_rounded),
+            ),
             Container(
               margin: const EdgeInsets.fromLTRB(25, 50, 25, 10),
               padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
@@ -83,10 +74,10 @@ class _EmergencyCallFormState extends State<EmergencyCallForm> {
                           child: TextFormField(
                             controller: nama,
                             decoration: ThemeHelper().textInputDecoration(
-                                'Nama Rumah Sakit', 'Masukkan nama Rumah Sakit'),
+                                'Nama Kuliner', 'Masukkan nama tempat Kuliner'),
                             validator: (val) {
                               if (val!.isEmpty) {
-                                return "Nama Rumah Sakit tidak boleh kosong";
+                                return "Nama Kuliner tidak boleh kosong";
                               }
                               return null;
                             },
@@ -98,14 +89,14 @@ class _EmergencyCallFormState extends State<EmergencyCallForm> {
                         Container(
                           decoration: ThemeHelper().inputBoxDecorationShaddow(),
                           child: TextFormField(
-                            controller: telefon,
+                            controller: rating,
                             decoration: ThemeHelper().textInputDecoration(
-                                'Nomor Telefon', 'Masukkan nomor telefon Rumah Sakit'),
+                                'rating', 'Masukkan rating tempat Kuliner'),
                             validator: (val) {
                               if (val!.isEmpty) {
-                                return "Nomor Telefon tidak boleh kosong";
-                              } else if (val.length > 20) {
-                                return "maksimal input 20 characters";
+                                return "rating tidak boleh kosong";
+                              } else if (val.length > 10) {
+                                return "rating maksimal 5";
                               }
                               return null;
                             },
@@ -119,8 +110,8 @@ class _EmergencyCallFormState extends State<EmergencyCallForm> {
                           child: TextFormField(
                             controller: lokasi,
                             decoration: ThemeHelper().textInputDecoration(
-                                'lokasi Rumah Sakit',
-                                'Masukkan lokasi'),
+                                'lokasi',
+                                'Masukkan lokasi tempat Kuliner'),
                             validator: (val) {
                               if (val!.isEmpty) {
                                 return "lokasi tidak boleh kosong";
@@ -154,7 +145,7 @@ class _EmergencyCallFormState extends State<EmergencyCallForm> {
                             onPressed: () async {
                               if (_formKey.currentState!.validate()) {
                                 ResponseModel res = await _submitData();
-                                if (res.msg == "Rumah Sakit berhasil ditambah") {
+                                if (res.msg == "nama Kuliner berhasil dibuat") {
                                   ScaffoldMessenger.of(context)
                                       .showSnackBar( SnackBar(
                                       content: Text(
@@ -162,7 +153,7 @@ class _EmergencyCallFormState extends State<EmergencyCallForm> {
                                   Navigator.of(context).pushAndRemoveUntil(
                                       MaterialPageRoute(
                                           builder: (context) =>
-                                          const EmergencyCallPage()),
+                                          const kulinerPage()),
                                           (Route<dynamic> route) => false);
                                 } else {
                                   ScaffoldMessenger.of(context)

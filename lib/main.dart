@@ -73,8 +73,6 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Container(
           padding: EdgeInsets.all(10),
           height: MediaQuery.of(context).size.height * 0.7,
-          decoration:
-              const BoxDecoration(color: Color.fromRGBO(48, 72, 171, 1)),
           child: Center(
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -88,14 +86,11 @@ class _MyHomePageState extends State<MyHomePage> {
                       fontSize: 24,
                     ),
                     children: <TextSpan>[
+                      
                       TextSpan(
-                        text:
-                            "Selamat datang di Jelajah Indonesia ",
-                      ),
-                      TextSpan(
-                          text: 'Jelajah Indonesia',
+                          text: 'Pada project PBP ini, kelompok kami membuat sebuah website bernama Jelajah Indonesia yang berisi segala informasi dan hal yang dapat dilakukan oleh pandatang dari berbagai negara yang akan menjadi partisipan G20 untuk mengisi waktu selama rangkaian acara G20 berlangsung.',
                           style: TextStyle(
-                              color: Color.fromRGBO(185, 243, 185, 1)))
+                              color: Color.fromARGB(255, 255, 255, 255)))
                     ],
                   ),
                 ),

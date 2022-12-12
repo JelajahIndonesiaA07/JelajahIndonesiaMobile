@@ -92,7 +92,52 @@ class ActivityDetailPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Things To Do'),
+                actions: [
+          IconButton(
+              onPressed: () {
+                showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text("Ask"),
+                        content: Text("Do you want to delete?"),
+                        actions: [
+                          TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: Text("NO")),
+                          TextButton(
+                              onPressed: () async {
+                                bool result = await ActivityServices()
+                                    .deleteActivity(
+                                  ActivityId: activity.pk,
+                                );
+                                if (result) {
+                                  Navigator.pop(context);
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(
+                                          content:
+                                          Text("Berhasil hapus data")));
+                                  Navigator.of(context).pushAndRemoveUntil(
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                          const ActivityPage()),
+                                          (Route<dynamic> route) => false);
+                                }
+                              },
+                              child: Text("YES")),
+                        ],
+                      );
+                    });
+              },
+              icon: Icon(
+                Icons.delete,
+                color: Colors.white,
+              ))
+        ],
       ),
+      
       drawer: const DrawerApp(),
       body: Container(
         child: Stack(children: [

@@ -3,6 +3,8 @@ import '../Profile_User/form.dart';
 import '../Profile_User/summary.dart';
 import 'package:jim/activity/widgets/drawer.dart';
 
+import '../activity/page/myactivity.dart';
+
 class ShowPage extends StatefulWidget {
   const ShowPage({super.key});
 
@@ -69,7 +71,7 @@ class _ShowPageState extends State<ShowPage> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
-                        "Kontak : ${ProfileForm.profile[index].kontak}",
+                        "Kontak : 0${ProfileForm.profile[index].kontak}",
                       ),
                     ),
                   ],

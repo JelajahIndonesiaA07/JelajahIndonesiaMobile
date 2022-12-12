@@ -123,14 +123,14 @@ class ActivityServices {
     return ResponseModel(msg: result["hasil"], data: List.empty());
   }
 
-  Future<bool> deleteTemapatWisata({
+  Future<bool> deleteActivity({
     required int ActivityId,
   }) async {
     final body = json.encode({"activity_id": ActivityId});
 
     final response = await http.post(
         Uri.parse(
-            "https://jelajah-indonesia.up.railway.app/tempat_wisata/delete-data/"),
+            "https://jelajah-indonesia.up.railway.app/activity/delete-data/"),
         headers: {
           "Access-Control-Allow-Origin": "*",
           'Content-Type': 'application/json',

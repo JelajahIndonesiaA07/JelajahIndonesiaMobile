@@ -46,7 +46,7 @@ class _SignUpPageState extends State<SignUpPage> {
     // The rest of your widgets are down below
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.white,
+          backgroundColor: Color.fromARGB(255, 0, 0, 0),
           // Here we take the value from the MyHomePage object that was created by
           // the App.build method, and use it to set our appbar title.
           title: Row(
@@ -62,7 +62,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 borderRadius: BorderRadius.circular(25),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
+                    color: Color.fromARGB(255, 99, 99, 99).withOpacity(0.5),
                     spreadRadius: 5,
                     blurRadius: 7,
                     offset: const Offset(0, 3), // changes position of shadow
@@ -100,10 +100,13 @@ class _SignUpPageState extends State<SignUpPage> {
                         padding: const EdgeInsets.symmetric(
                             horizontal: 8.0, vertical: 20),
                         child: TextFormField(
+                          style: const TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
                           decoration: InputDecoration(
                             labelText: "Username",
+                            hintText: "Nama Username",
                             // Menambahkan icon agar lebih intuitif
-                            icon: const Icon(Icons.people),
+                            icon: const Icon(Icons.people,
+                            color: Color.fromARGB(255, 0, 0, 0),),
                             // Menambahkan circular border agar lebih rapi
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5.0),
@@ -143,11 +146,15 @@ class _SignUpPageState extends State<SignUpPage> {
                         padding: const EdgeInsets.symmetric(
                             horizontal: 8.0, vertical: 20),
                         child: TextFormField(
+                          style: const TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
                           obscureText: !isPasswordVisible,
                           decoration: InputDecoration(
                             labelText: "Password",
+                            hintText: "Masukkan Password",
                             // Menambahkan icon agar lebih intuitif
-                            icon: const Icon(Icons.lock),
+                            icon: const Icon(Icons.lock,
+                            color: Color.fromARGB(255, 0, 0, 0),
+                            ),
                             suffixIcon: IconButton(
                               splashRadius: 1,
                               icon: Icon(isPasswordVisible
@@ -195,11 +202,13 @@ class _SignUpPageState extends State<SignUpPage> {
                         padding: const EdgeInsets.symmetric(
                             horizontal: 8.0, vertical: 20),
                         child: TextFormField(
+                          style: const TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
                           obscureText: !isPasswordVisible,
                           decoration: InputDecoration(
                             labelText: "Password Confirmation",
                             // Menambahkan icon agar lebih intuitif
-                            icon: const Icon(Icons.lock),
+                            icon: const Icon(Icons.lock,
+                            color: Color.fromARGB(255, 0, 0, 0),),
                             suffixIcon: IconButton(
                               splashRadius: 1,
                               icon: Icon(isPasswordVisible
@@ -264,7 +273,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           style: TextButton.styleFrom(
                               foregroundColor: Colors.white,
                               backgroundColor:
-                                  const Color.fromARGB(255, 15, 81, 135)),
+                                  Color.fromARGB(255, 0, 0, 0)),
                           child: const Text(
                             "Sign Up",
                             style: TextStyle(fontSize: 18),
