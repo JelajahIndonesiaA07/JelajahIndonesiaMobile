@@ -4,12 +4,15 @@ import '../widgets/drawer.dart';
 import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import '../function/fetch.dart';
+import '../models/activity.dart';
+import '../models/base.dart';
 
-class MyFormPage extends StatefulWidget {
-  const MyFormPage({super.key});
+class MyActivityPage extends StatefulWidget {
+  const MyActivityPage({super.key});
 
   @override
-  State<MyFormPage> createState() => _TambahActivityContentPageState();
+  State<MyActivityPage> createState() => _TambahActivityContentPageState();
 }
 
 class ActivityContent {
@@ -22,27 +25,29 @@ class ActivityContent {
   });
 }
 
-class _TambahActivityContentPageState extends State<MyFormPage> {
+class _TambahActivityContentPageState extends State<MyActivityPage> {
   final _formKey = GlobalKey<FormState>();
-  String? title;
-  String? description;
+  // String? title;
+  // String? description;
   Future<ActivityContent>? _futureAlbum;
   final TextEditingController _in = TextEditingController();
   final TextEditingController _in2 = TextEditingController();
+  String? title;
+  String? description; 
 
-  void submit(String title, String description) async {
-    var url = Uri.parse(
-        'https://jelajah-indonesia.up.railway.app/activity/add-activity-flutter/');
-    var map = <String, dynamic>{};
-    map["title"] = title;
-    map["description"] = description;
-    var response = await http.post(url, body: map);
-    print(response.body);
-    onPressed(BuildContext context) {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-          content: Text('Data sedang diproses. Mohon tunggu...')));
-    }
-  }
+  // void submit(String title, String description) async {
+  //   var url = Uri.parse(
+  //       'https://jelajah-indonesia.up.railway.app/activity/add-activity-flutter/');
+  //   var map = <String, dynamic>{};
+  //   map["title"] = title;
+  //   map["description"] = description;
+  //   var response = await http.post(url, body: map);
+  //   print(response.body);
+  //   onPressed(BuildContext context) {
+  //     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+  //         content: Text('Data sedang diproses. Mohon tunggu...')));
+  //   }
+  // }
 
 //   @override
 //   Widget build(BuildContext context) {
@@ -151,7 +156,22 @@ class _TambahActivityContentPageState extends State<MyFormPage> {
 //     );
 //   }
 // }
-@override
+  bool loading = false;
+  _onLoading() => setState(() => loading = true);
+  _offLoading() => setState(() => loading = false);
+
+  Future<ResponseModel> _submitData() async {
+    _onLoading();
+    ResponseModel result = await ActivityServices()
+        .addActivity(title: _in.text, description: _in2.text);
+    _offLoading();
+    return result;
+  }
+
+  bool checkedValue = false;
+  bool checkboxValue = false;
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -191,6 +211,7 @@ class _TambahActivityContentPageState extends State<MyFormPage> {
                         title = value!;
                       });
                     },
+
                     validator: (String? value) {
                       if (value == null || value.isEmpty) {
                         return 'title tidak boleh kosong!';
@@ -241,63 +262,69 @@ class _TambahActivityContentPageState extends State<MyFormPage> {
                         padding: const EdgeInsets.all(15.0),
                         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                         alignment: Alignment.center),
-                    onPressed: () {
+                    onPressed: () async {
                       if (_formKey.currentState!.validate()) {
-                        submit(title!, description!);
-                        showDialog(
-                        context: context,
-                        builder: (context) {
-                          return Dialog(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            elevation: 15,
-                            child: Container(
-                              child: ListView(
-                                padding:
-                                    const EdgeInsets.only(top: 20, bottom: 20),
-                                shrinkWrap: true,
-                                children: <Widget>[
-                                  const Center(child: Text('Berhasil Menambahkan!')),
-                                  const SizedBox(height: 20),
-                                  // TODO: Munculkan informasi yang didapat dari form
-                                  Center(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          'Nama Tempat Kuliner: $title',
-                                          style: TextStyle(color: Colors.deepPurple),
+                        ResponseModel res = await _submitData();
+                        if (res.msg == "nama activity berhasil dibuat") {
+                          showDialog(
+                            context: context,
+                            builder: (context) {
+                              return Dialog(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                elevation: 15,
+                                child: Container(
+                                  child: ListView(
+                                    padding: const EdgeInsets.only(
+                                        top: 20, bottom: 20),
+                                    shrinkWrap: true,
+                                    children: <Widget>[
+                                      const Center(
+                                          child: Text('Berhasil Menambahkan!')),
+                                      const SizedBox(height: 20),
+                                      
+                                      Center(
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              'Nama Tempat Kuliner: $title',
+                                              style: TextStyle(
+                                                  color: Colors.deepPurple),
+                                            ),
+                                            const SizedBox(
+                                              height: 10,
+                                            ),
+                                            Text(
+                                              'Rating Tempat Kuliner: $description',
+                                              style: TextStyle(
+                                                  color: Colors.deepPurple),
+                                            ),
+                                            const SizedBox(
+                                              height: 10,
+                                            ),
+                                            const SizedBox(
+                                              height: 10,
+                                            ),
+                                          ],
                                         ),
-                                        const SizedBox(
-                                          height: 10,
-                                        ),
-                                        Text(
-                                          'Rating Tempat Kuliner: $description',
-                                          style: TextStyle(color: Colors.deepPurple),
-                                        ),
-                                        const SizedBox(
-                                          height: 10,
-                                        ),
-                                        const SizedBox(
-                                          height: 10,
-                                        ),
-                                      ],
-                                    ),
+                                      ),
+                                      TextButton(
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                        child: const Text('Kembali'),
+                                      ),
+                                    ],
                                   ),
-                                  TextButton(
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                    },
-                                    child: const Text('Kembali'),
-                                  ),
-                                ],
-                              ),
-                            ),
+                                ),
+                              );
+                            },
                           );
-                        },
-                      );
+                        }
+                        ;
                       }
                     },
                     child: const Text('Simpan',

@@ -5,6 +5,7 @@ import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'auth/pages/login_page.dart';
 import 'auth/models/models_login.dart';
 
+
 void main() {
   runApp(const MyApp());
 }
@@ -27,9 +28,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'Jelajah Indonesia',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
+        theme:ThemeData(brightness: Brightness.dark,primaryColor: Colors.black),
         // home: const MyHomePage(),
         initialRoute: "/login",
         routes: {
@@ -49,6 +48,20 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  void _decrementCounter() {
+    setState(() {
+      _counter--;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
