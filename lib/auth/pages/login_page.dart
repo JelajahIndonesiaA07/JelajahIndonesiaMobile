@@ -129,7 +129,7 @@ class _LoginPageState extends State<LoginPage> {
                 height: 35,
                 child: TextButton(
                   style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.blue),
+                    backgroundColor: MaterialStateProperty.all(Color.fromARGB(255, 255, 255, 255)),
                   ),
                   onPressed: () async {
                     if (_loginFormKey.currentState!.validate()) {
@@ -197,7 +197,7 @@ class _LoginPageState extends State<LoginPage> {
                   },
                   child: const Text(
                     "Login",
-                    style: TextStyle(fontSize: 16, color: Colors.white),
+                    style: TextStyle(fontSize: 16, color: Color.fromARGB(255, 0, 0, 0)),
                   ),
                 ),
               ),
@@ -214,7 +214,7 @@ class _LoginPageState extends State<LoginPage> {
                                     builder: (context) => const SignUpPage()));
                           },
                           style: TextButton.styleFrom(
-                            foregroundColor: Colors.blue,
+                            foregroundColor: Color.fromARGB(255, 255, 255, 255),
                           ),
                           child: const Text(
                             "Don't have account yet?",

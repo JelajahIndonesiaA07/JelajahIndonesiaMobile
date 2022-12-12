@@ -5,12 +5,12 @@
 import 'package:meta/meta.dart';
 import 'dart:convert';
 
-List<Kuliner> kulinerFromJson(String str) => List<Kuliner>.from(json.decode(str).map((x) => Kuliner.fromJson(x)));
+List<BaseResponseTempatKuliner> kulinerFromJson(String str) => List<BaseResponseTempatKuliner>.from(json.decode(str).map((x) => BaseResponseTempatKuliner.fromJson(x)));
 
-String kulinerToJson(List<Kuliner> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String kulinerToJson(List<BaseResponseTempatKuliner> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class Kuliner {
-    Kuliner({
+class BaseResponseTempatKuliner {
+    BaseResponseTempatKuliner({
         required this.model,
         required this.pk,
         required this.fields,
@@ -20,7 +20,7 @@ class Kuliner {
     int pk;
     Fields fields;
 
-    factory Kuliner.fromJson(Map<String, dynamic> json) => Kuliner(
+    factory BaseResponseTempatKuliner.fromJson(Map<String, dynamic> json) => BaseResponseTempatKuliner(
         model: modelValues.map[json["model"]],
         pk: json["pk"],
         fields: Fields.fromJson(json["fields"]),

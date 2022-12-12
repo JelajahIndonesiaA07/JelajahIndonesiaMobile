@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import '../Profile_User/form.dart';
-import '../Profile_User/models.dart';
+import 'models/models.dart';
 import '../Profile_User/detail.dart';
 import 'package:http/http.dart' as http;
 import '../Profile_User/profile.dart';
@@ -81,7 +81,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                   horizontal: 16, vertical: 12),
                               padding: const EdgeInsets.all(20.0),
                               decoration: BoxDecoration(
-                                  color: Colors.white,
+                                  color: Color.fromARGB(255, 0, 0, 0),
                                   border: Border.all(
                                       // color: snapshot.data![index].fields.watched
                                       //     ? Colors.green

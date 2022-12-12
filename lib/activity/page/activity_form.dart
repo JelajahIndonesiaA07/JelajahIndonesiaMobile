@@ -258,7 +258,7 @@ class _TambahActivityContentPageState extends State<MyActivityPage> {
                   alignment: Alignment.bottomCenter,
                   child: TextButton(
                     style: TextButton.styleFrom(
-                        backgroundColor: Colors.deepPurple,
+                        backgroundColor: Color.fromARGB(255, 0, 132, 255),
                         padding: const EdgeInsets.all(15.0),
                         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                         alignment: Alignment.center),
@@ -290,17 +290,17 @@ class _TambahActivityContentPageState extends State<MyActivityPage> {
                                               CrossAxisAlignment.start,
                                           children: [
                                             Text(
-                                              'Nama Tempat Kuliner: $title',
+                                              'Nama Aktivitas: $title',
                                               style: TextStyle(
-                                                  color: Colors.deepPurple),
+                                                  color: Color.fromARGB(255, 0, 132, 255)),
                                             ),
                                             const SizedBox(
                                               height: 10,
                                             ),
                                             Text(
-                                              'Rating Tempat Kuliner: $description',
+                                              'Jenis kegiatan: $description',
                                               style: TextStyle(
-                                                  color: Colors.deepPurple),
+                                                  color: Color.fromARGB(255, 0, 132, 255)),
                                             ),
                                             const SizedBox(
                                               height: 10,

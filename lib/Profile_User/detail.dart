@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:jim/Profile_User/form.dart';
-import 'package:jim/Profile_User/models.dart';
+import 'package:jim/Profile_User/models/models.dart';
 import 'package:http/http.dart' as http;
 import 'package:jim/Profile_User/profile.dart';
 import 'package:jim/Profile_User/summary.dart';
@@ -29,9 +29,30 @@ class _DetailPageState extends State<DetailPage> {
       ),
       drawer: const DrawerApp(),
       body: Container(
+        child: Stack(children: [
+          Container(
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                  padding: const EdgeInsets.all(20),
+        decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset:
+                            const Offset(0, 3), // changes position of shadow
+                      ),
+
+                    ],
+                    borderRadius: BorderRadius.circular(20),
+                    color: const Color.fromARGB(255, 165, 224, 167),
+                  ), 
         child: Padding(
           padding: const EdgeInsets.all(30.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisSize: MainAxisSize.min,
             children: [
               Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -40,6 +61,7 @@ class _DetailPageState extends State<DetailPage> {
                   style: const TextStyle(
                     fontSize: 20.0,
                     fontWeight: FontWeight.bold,
+                    
                   ),
                 ),
               ),
@@ -52,7 +74,7 @@ class _DetailPageState extends State<DetailPage> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                    "Status: ${model.vaksin} divaksinasi"),
+                    "Status: ${model.vaksin == "Sudah" ? "Sudah ✅" : "Belum ❌"}"),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -77,6 +99,9 @@ class _DetailPageState extends State<DetailPage> {
                 child: Text(
                   "Kontak : ${model.kontak}",
                 ),
+              ),
+              ]),
+              ),  
               ),
               Expanded(
                   flex: 2,
@@ -104,7 +129,6 @@ class _DetailPageState extends State<DetailPage> {
             ],
           ),
         ),
-      ),
     );
   }
 }

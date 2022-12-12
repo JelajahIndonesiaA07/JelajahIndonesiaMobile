@@ -1,28 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:jim/emergencycall/models/emergencycall.dart';
-import 'package:jim/emergencycall/pages/emergencycalldetail.dart';
-import 'package:jim/emergencycall/pages/postemergencycall.dart';
+import 'package:jim/tempat_wisata/model/tempat_wisata_model.dart';
+import 'package:jim/tempat_wisata/page/tempat_wisata_detail.dart';
+import 'package:jim/tempat_wisata/page/tempat_wisata_form.dart';
 
 import '../../activity/widgets/drawer.dart';
-import '../models/baseresponse.dart';
-import '../fetch/fetchemergencycall.dart';
+import '../model/base_response.dart';
+import '../services/tempat_wisata_services.dart';
 
-import 'package:jim/emergencycall/fetch/fetchemergencycall.dart';
-import 'package:jim/emergencycall/models/emergencycall.dart';
-import 'package:jim/emergencycall/pages/postemergencycall.dart';
-
-
-class EmergencyCallPage extends StatefulWidget {
-  const EmergencyCallPage({super.key});
+class TempatWisataPage extends StatefulWidget {
+  const TempatWisataPage({super.key});
 
   @override
-  State<EmergencyCallPage> createState() => _EmergencyCallPageState();
+  State<TempatWisataPage> createState() => _TempatWisataPageState();
 }
 
-class _EmergencyCallPageState extends State<EmergencyCallPage> {
+class _TempatWisataPageState extends State<TempatWisataPage> {
   @override
   Widget build(BuildContext context) {
-    ListTile makeListTile(Emergencycall emergencycall) => ListTile(
+    ListTile makeListTile(BaseResponseTempatWisata tempatWisata) => ListTile(
       contentPadding:
       const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
       leading: Container(
@@ -30,18 +25,18 @@ class _EmergencyCallPageState extends State<EmergencyCallPage> {
         child: const Icon(Icons.autorenew, color: Colors.white),
       ),
       title: Text(
-        emergencycall.fields.hospitalName,
+        tempatWisata.fields.namaTempatWisata,
       ),
       onTap: () {
         Navigator.push(
             context,
             MaterialPageRoute(
                 builder: (context) =>
-                    EmergencyCallDetailPage(emergencycall: emergencycall)));
+                    TempatWisataDetailPage(tempatWisata: tempatWisata)));
       },
     );
 
-    Card makeCard(Emergencycall emergencycall) => Card(
+    Card makeCard(BaseResponseTempatWisata tempatWisata) => Card(
       margin: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 1),
       elevation: 4,
       shape: RoundedRectangleBorder(
@@ -51,17 +46,17 @@ class _EmergencyCallPageState extends State<EmergencyCallPage> {
         borderRadius: const BorderRadius.all(Radius.circular(12)),
       ),
       child: Container(
-        child: makeListTile(emergencycall),
+        child: makeListTile(tempatWisata),
       ),
     );
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Daftar Rumah Sakit'),
+        title: const Text('Tempat Wisata'),
       ),
       drawer: const DrawerApp(),
       body: FutureBuilder<ResponseModel>(
-          future: EmergencyCallServices().getDataEmergencyCallByUserId(),
+          future: TempatWisataServices().getDataWisataByUserId(),
           builder: (context, AsyncSnapshot snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(child: CircularProgressIndicator());
@@ -78,7 +73,7 @@ class _EmergencyCallPageState extends State<EmergencyCallPage> {
                   return const Center(
                     child:
                     Text(
-                      "Tidak ada Rumah Sakit",
+                      "Tidak ada tempat wisata",
                       style:
                       TextStyle(color: Color(0xff59A5D8), fontSize: 20),
                     ),
@@ -88,7 +83,7 @@ class _EmergencyCallPageState extends State<EmergencyCallPage> {
                 return Column(
                   children: const [
                     Text(
-                      "Tidak ada Rumah Sakit",
+                      "Tidak ada tempat wisata",
                       style: TextStyle(color: Color(0xff59A5D8), fontSize: 20),
                     ),
                     SizedBox(height: 8),
@@ -99,7 +94,7 @@ class _EmergencyCallPageState extends State<EmergencyCallPage> {
           }),
       floatingActionButton: FloatingActionButton(
         onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context) => EmergencyCallForm()));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => TempatWisataForm()));
         },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
