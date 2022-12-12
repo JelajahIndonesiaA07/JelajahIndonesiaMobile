@@ -2,10 +2,17 @@
 <h3 align="center">Tugas Kelompok PBP A07 </h3>
 <div align="center">
 
-  <a href="">[![Status deployment](https://github.com/JelajahIndonesiaA07/JelajahIndonesiaMobile/workflows/Deploy/badge.svg)](https://github.com/JelajahIndonesiaA07/JelajahIndonesiaMobile/actions/workflows/dpl.yml)</a>
-  <a href="">[![Staging](https://github.com/JelajahIndonesiaA07/JelajahIndonesiaMobile/actions/workflows/staging.yml/badge.svg)](https://github.com/JelajahIndonesiaA07/JelajahIndonesiaMobile/actions/workflows/staging.yml)</a>
-  <a href="">[![Pre-Release](https://github.com/JelajahIndonesiaA07/JelajahIndonesiaMobile/actions/workflows/pre-release.yml/badge.svg)](https://github.com/JelajahIndonesiaA07/JelajahIndonesiaMobile/actions/workflows/pre-release.yml)</a>
-  <a href="">[![Release](https://github.com/JelajahIndonesiaA07/JelajahIndonesiaMobile/actions/workflows/release.yml/badge.svg)](https://github.com/JelajahIndonesiaA07/JelajahIndonesiaMobile/actions/workflows/release.yml)</a>
+
+
+
+  <a href="">[![Status deployment](https://github.com/JelajahIndonesiaA07/JelajahIndonesiaMobile/actions/workflows/release.yml/badge.svg)](https://github.com/JelajahIndonesiaA07/JelajahIndonesiaMobile/actions/workflows/release.yml)</a>
+  
+  <a href="">[![Build Status](https://build.appcenter.ms/v0.1/apps/431e1f18-e5ad-4ad4-b848-d5ee379c57a5/branches/main/badge)](https://install.appcenter.ms/users/rafialyfarrel16-gmail.com/apps/jelajah-indonesia-mobile/distribution_groups/jelajah%20indonesia)
+</a>
+  
+
+  
+ 
   <p>G20 merupakan forum kerja sama internasional yang beranggotakan negara-negara dengan perekonomian terbesar di dunia. Dalam kunjungannya ke Indonesia, tentu perwakilan negara G20 akan mencoba kuliner, tempat wisata, ataupun rumah sakit jika diperlukan. Untuk mendukung hal tersebut, kami menciptakan aplikasi Jelajah Indonesia. Jelajah Indonesia hadir untuk memberikan rekomendasi tempat wisata, rumah sakit, dan tempat kuliner sesuai dengan lokasi yang ingin dituju. Tidak hanya itu, Jelajah-Indonesia juga memberikan rekomendasi aktivitas untuk mengisi waktu luang sehingga para partisipan G20 tidak merasa bosan.</p>
 </div>
 
@@ -16,6 +23,7 @@
 Jelajah-Indonesia bertujuan untuk memperkenalkan Indonesia dengan memberikan rekomendasi tempat-tempat yang menarik. Tidak hanya itu, Jelajah-Indonesia juga memberikan rekomendasi aktivitas untuk mengisi waktu luang sehingga para partisipan G20 tidak merasa bosan. Dengan begitu, para partisipan memiliki referensi tempat dan aktivitas yang dapat dilakukan. Apabila mengalami masalah kesehatan, para partisipan dapat mengunjungi rumah sakit yang tertera pada *mobile app*. 
 
 ## 🔗 Link Apk
+### [Link Aplikasi](https://install.appcenter.ms/users/rafialyfarrel16-gmail.com/apps/jelajah-indonesia-mobile/distribution_groups/jelajah%20indonesia)
 
 ## ⚙️ Languages & Tools
 <div align="center">
